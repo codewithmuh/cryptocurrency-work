@@ -1,0 +1,335 @@
+{% load static %}
+<html class="no-js" lang="zxx">
+<head>
+    <title>CRYPTO-CURRANCY</title>
+    <meta name="theme-color" content="#141e30"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="icon" href="{% static '' %}">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/fontawesome.js' %}"></script>
+    <style>
+        /* 02d29a */
+        .text-orange, .text-orange:hover{
+            color: #fd7e14;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .max-content{
+            width: max-content;
+        }
+        .bg-royal{
+            background: darkslategrey;
+            color: white;
+        }
+        .text-royal{
+            color: darkslategrey;
+        }
+        .image-fluid{
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            background: #fefefe;
+        }
+        .section{
+            padding: 30px;
+        }
+
+
+
+        .input{
+            height: 40px;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: black;
+            border-bottom: 2px solid grey;
+        }
+
+
+        .table-part{
+            overflow-x: auto;
+        }
+        .table-part .table{
+            border: none;
+        }
+        .table-part .table thead tr td{
+            border: 2px solid grey;
+        }
+        .table-part .table td{
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+
+
+
+    <section class="section">
+        <div class="row d-md-flex justify-content-md-between">
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-success text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Sign in</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Connect exchange</h6>
+                <h6 class="text-dark text-center bold">Go to <a href="#!" class="text-info">settings</a>, Need <a href="#!" class="text-info">help</a>?</h6>
+                <h6 class="text-dark text-center bold">Don't have crypto yet? <a href="#!" class="text-info"> Buy cryptocurrency</a>.</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Start Trading</h6>
+                <h6 class="text-dark text-center bold">Go to <a href="#!" class="text-info">Trading Terminal</a>, Need <a href="#!" class="text-info">help</a>?</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Try Copy-Trading</h6>
+                <h6 class="text-dark text-center bold">Copy best traders and bots or
+                    top the <a href="#!" class="text-info">Marketplace</a> leaderboard
+                    and get additional earnings.
+                    See <a href="#!" class="text-info">guide</a></h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Try Bots</h6>
+                <h6 class="text-dark text-center bold">Make your first bot? See <a href="#!" class="text-info">guide</a></h6>
+                <h6 class="text-dark text-center bold"> Don't have a TradingView Account?  <a href="#!" class="text-info"> Register now</a>.</h6>
+                <h6 class="text-dark text-center bold"> Don't have bots?  <a href="#!" class="text-info"> See our bot code sample</a>.</h6>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="section">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a href="#tradersApiAccountTab" class="nav-link active" data-toggle="tab">Trader's API account</a>
+            </li>
+            <li class="nav-item">
+                <a href="#botsTab" class="nav-link" data-toggle="tab">Bots</a>
+            </li>
+        </ul>
+        <div class="tab-content pt-5">
+            <div id="tradersApiAccountTab" class="tab-pane active">
+                <form class="row" method="post" action="">
+                    <div class="form-group p-2">
+                        <select class="input" name="TTADuration">
+                            <option value="allTime">All time</option>
+                            <option value="lastMonth">Last month</option>
+                            <option selected value="lastWeek">Last week</option>
+                        </select>
+                    </div>
+                    <div class="form-group p-2">
+                        <input class="input" type="number" name="TTAMinTrades" id="TTAMinTrades" placeholder="Min Trades Quantity">
+                    </div>
+                    <div class="form-group p-2">
+                        <input class="input btn btn-info" type="submit" value="Filter">
+                    </div>
+                </form>
+                <div class="table-part">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>Name of Account</td>
+                                <td>Trader Name</td>
+                                <td>Exchange</td>
+                                <td>Base Currency</td>
+                                <td><a href="#!" class="text-info">Volume</a></td>
+                                <td><a href="#!" class="text-info">P/L ($)</a></td>
+                                <td><a href="#!" class="text-info">Profit / Volume (%)</a></td>
+                                <td><a href="#!" class="text-info">Profit Factor</a></td>
+                                <td><a href="#!" class="text-info">Percent Profitable</a></td>
+                                <td><a href="#!" class="text-info">AVG P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">Weighted P/L</a></td>
+                                <td><a href="#!" class="text-info">Active Bots</a></td>
+                                <td><a href="#!" class="text-info">Followers</a></td>
+                                <td><a href="#!" class="text-info">Trades</a></td>
+                                <td>Timestamp</td>
+                                <td>Actions</td>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>1</td>
+                            <td>DEFI Shorts</td>
+                            <td><a href="#!" class="text-info">Niels</a></td>
+                            <td>FTX</td>
+                            <td>USDT</td>
+                            <td>97423 $</td>
+                            <td>267.43 $</td>
+                            <td>0.27%</td>
+                            <td>3.34</td>
+                            <td>40.94%</td>
+                            <td class="text-success">0.64%</td>
+                            <td class="text-success">65.41%</td>
+                            <td class="text-success">35.01%</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>508</td>
+                            <td>2 seconds ago</td>
+                            <td><a href="#!" class="btn btn-info">show</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item disabled"><a class="page-link disabled" href="#!">Previous</a></li>
+                      <li class="page-item active"><a class="page-link" href="#!">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">Next</a></li>
+                    </ul>
+                  </nav>
+            </div>
+            <div id="botsTab" class="tab-pane">
+                <form class="row" method="post" action="">
+                    <div class="form-group p-2">
+                        <select class="input" name="BTSDuration">
+                            <option value="allTime">All time</option>
+                            <option value="lastMonth">Last month</option>
+                            <option selected value="lastWeek">Last week</option>
+                        </select>
+                    </div>
+                    <div class="form-group p-2">
+                        <select class="input" name="BTSExchanges">
+                            <option selected value="AllExchanges">All Exchanges</option>
+                            <option value="BINANCE">BINANCE</option>
+                            <option value="FTX">FTX</option>
+                            <option value="BINANCE_FUTURES">BINANCE_FUTURES</option>
+                            <option value="BYBIT">BYBIT</option>
+                        </select>
+                    </div>
+                    <div class="form-group p-2">
+                        <select class="input" name="BTSPairs">
+                            <option selected value="allpairs">All Pairs</option>
+                            <option value="Option">Option</option>
+                            <option value="Option">Another option</option>
+                        </select>
+                    </div>
+                    <div class="form-group p-2">
+                        <select class="input" name="BTSTimeFrames">
+                            <option selected value="allTime">All TimeFrames</option>
+                            <option value="Option">option</option>
+                            <option value="Option">Another option</option>
+                        </select>
+                    </div>
+                    <div class="form-group p-2">
+                        <select class="input" name="BTSLeverages">
+                            <option selected value="allLeverages">All Leverages</option>
+                            <option value="Option">Option</option>
+                            <option value="Option">Another option</option>
+                        </select>
+                    </div>
+                    <div class="form-group p-2">
+                        <input class="input" type="number" name="BTSMinTraders" id="BTSMinTraders" placeholder="Min Trades Quantity">
+                    </div>
+                    <div class="form-group p-2">
+                        <input class="input btn btn-info" type="submit" value="Filter">
+                    </div>
+                </form>
+                <div class="table-part">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>Name</td>
+                                <td>Trader Name</td>
+                                <td>Details</td>
+                                <td>Leverage</td>
+                                <td><a href="#!" class="text-info">Volume</a></td>
+                                <td><a href="#!" class="text-info">P/L ($)</a></td>
+                                <td><a href="#!" class="text-info">Profit / Volume (%)</a></td>
+                                <td><a href="#!" class="text-info">Profit Factor</a></td>
+                                <td><a href="#!" class="text-info">Percent Profitable</a></td>
+                                <td><a href="#!" class="text-info">AVG P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">Weighted P/L</a></td>
+                                <td><a href="#!" class="text-info">Followers</a></td>
+                                <td><a href="#!" class="text-info">Trades</a></td>
+                                <td>Timestamp</td>
+                                <td>Actions</td>
+                            </tr>
+                        </thead>
+                        <tr>
+
+                            <td>1</td>
+                            <td>FiBot</td>
+                            <td><a href="#!" class="text-info">YUSUF</a></td>
+                            <td>BINANCE-FUTURES | BTC/USDT | 5M</td>
+                            <td>20x</td>
+                            <td>149467 $</td>
+                            <td>-964.92 $</td>
+                            <td>-0.65%</td>
+                            <td>0.14</td>
+                            <td>50%</td>
+                            <td class="text-danger">-1.23%</td>
+                            <td class="text-danger">-24.54%</td>
+                            <td class="text-danger">-27.16%</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>2020-10-12 16:49</td>
+                            <td><a href="#!" class="btn btn-info">show</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item disabled"><a class="page-link disabled" href="#!">Previous</a></li>
+                      <li class="page-item active"><a class="page-link" href="#!">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">Next</a></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </section>
+
+
+
+    {% include 'footer.html' %}
+</body>
+<script>
+
+</script>
+</html>

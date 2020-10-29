@@ -1,0 +1,188 @@
+{% load static %}
+<html class="no-js" lang="zxx">
+<head>
+    <title>CRYPTO-CURRANCY</title>
+    <meta name="theme-color" content="#141e30"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="icon" href="{% static '' %}">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/fontawesome.js' %}"></script>
+    <style>
+        /* 02d29a */
+        .text-orange, .text-orange:hover{
+            color: #fd7e14;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .max-content{
+            width: max-content;
+        }
+        .bg-royal{
+            background: darkslategrey;
+            color: white;
+        }
+        .text-royal{
+            color: darkslategrey;
+        }
+        .image-fluid{
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            background: #fefefe;
+        }
+        .section{
+            padding: 30px;
+        }
+
+
+
+        .ctcard{
+            width: 100%;
+            height: 100%;
+            background: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px grey;
+            transition: all 0.2s ease;
+        }
+        .ctcard:hover{
+            transform: scale(1.03);
+            box-shadow: 0px 0px 10px dodgerblue;
+        }
+
+
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+
+
+
+    <section class="section">
+        <div class="row d-md-flex justify-content-md-between">
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-success text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Sign in</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Connect exchange</h6>
+                <h6 class="text-dark text-center bold">Go to <a href="#!" class="text-info">settings</a>, Need <a href="#!" class="text-info">help</a>?</h6>
+                <h6 class="text-dark text-center bold">Don't have crypto yet? <a href="#!" class="text-info"> Buy cryptocurrency</a>.</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Start Trading</h6>
+                <h6 class="text-dark text-center bold">Go to <a href="#!" class="text-info">Trading Terminal</a>, Need <a href="#!" class="text-info">help</a>?</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Try Copy-Trading</h6>
+                <h6 class="text-dark text-center bold">Copy best traders and bots or
+                    top the <a href="#!" class="text-info">Marketplace</a> leaderboard
+                    and get additional earnings.
+                    See <a href="#!" class="text-info">guide</a></h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-muted text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-dark text-center bold">Try Bots</h6>
+                <h6 class="text-dark text-center bold">Make your first bot? See <a href="#!" class="text-info">guide</a></h6>
+                <h6 class="text-dark text-center bold"> Don't have a TradingView Account?  <a href="#!" class="text-info"> Register now</a>.</h6>
+                <h6 class="text-dark text-center bold"> Don't have bots?  <a href="#!" class="text-info"> See our bot code sample</a>.</h6>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <h3 class="text-dark text-center bold">Welcome to Copy-Trading</h3>
+        <h6 class="text-center text-info bold">Roles</h6>
+        <div class="row justify-content-between p-2">
+            <div class="col-md-6 p-2">
+                <div class="ctcard p-3">
+                    <h3 class="text-info bold">Trader</h3>
+                    <br/><br/>
+                    <h6 class="text-dark bold">Allow other users to copy your trades.</h6>
+                    <br/><br/>
+                    <h6 class="text-dark bold">Earn your commission from copy-trading (coming soon).</h6>
+                    <br/><br/>
+                    <div style="width: 150px; margin: auto;">
+                        <button class="btn btn-info">Start</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-2">
+                <div class="ctcard p-3">
+                    <h3 class="text-info bold">Copy-trader</h3>
+                    <br/><br/>
+                    <h6 class="text-dark bold">Copy the best traders or specific bots.</h6>
+                    <br/><br/>
+                    <br/>
+                    <br/><br/>
+                    <div style="width: 150px; margin: auto;">
+                        <button class="btn btn-info">Start</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 p-2">
+                <div class="ctcard p-3">
+                    <h3 class="text-info bold">How it works</h3>
+                    <br/><br/>
+                    <h6 class="text-dark bold">1. Every Monday trades are settled.</h6>
+                    <br/><br/>
+                    <h6 class="text-dark bold">2. If P/L of copied trades is positive, a Copy-trader must share a percentage of that profit with the Trader.</h6>
+                    <br/><br/>
+                    <h6 class="text-dark bold">3. Trader receives funds on his balance.</h6>
+                    <br/><br/>
+                    <h3 class="text-info bold">Terms</h3>
+                    <br/><br/>
+                    <h6 class="text-dark bold">Trader's commission is set by the Trader and can be found in the Marketplace.</h6>
+                    <br/><br/>
+                    <h6 class="text-dark bold">The Trader must make at least 10 strategies to become visible for Copy-traders.</h6>
+                    <br/><br/>
+                    <h6 class="text-dark bold">Wunderbit Trading fee is 20% of Trader's commission and is charged to the Copy-trader on top of the Trader's commission. Example: Trader's commission is 20%, then Wunderbit fee is 4%. Copy-trader got the profit of $100, then he will pay 24% ($24), of which $20 will go to the Trader and $4 will go to Wunderbit. Net profit of Copy-trader per week is $76.</h6>
+                    <br/><br/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    {% include 'footer.html' %}
+</body>
+<script>
+
+</script>
+</html>

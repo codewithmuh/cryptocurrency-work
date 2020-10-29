@@ -1,0 +1,96 @@
+{% load static %}
+    <style>
+        .topalert{
+            width: 100%;
+            height: 20px;
+            background: #17a2b8;
+            overflow: hiddden;
+        }
+        #navbar{
+            width: 100%;
+            height: auto;
+            position: sticky;
+            top: 0;
+            left: 0;
+            background: #f4f4f4;
+            z-index: 10;
+        }
+        @media(max-width: 767px){
+            .topalert{
+                width: 0;
+                height: 0;
+                visibility: hidden;
+                position: absolute;
+                z-index: -5;
+            }
+        }
+    </style>
+    <div class="topalert text-center">
+        <h6 class="text-white">CRYPTO-CURRANCY is live => <a href="{% url 'login' %}" class="text-white">try it now</a></h6>
+    </div>
+
+
+
+
+
+    <nav id="navbar" class="navbar navbar-expand-lg justify-content-between bgtransparent">
+        <a href="#!" style="margin: 0; padding: 5px; height: 60px;" class="navbar-brand d-flex">
+            <div style="width: 50px; height: 50px;">
+                <img class="image-fluid" src="{% static 'img/Bitcoin.png' %}">
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><i class="fas fa-bars text-info" aria-hidden="true"></i></button>
+        <div class="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="text-info text-bold nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-dark text-bold nav-link disabled" href="#!">Trading Terminal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-dark text-bold nav-link disabled" href="#!">Bots</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-info text-bold nav-link" href="{% url 'marketplace' %}">MarketPlace</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-info text-bold nav-link" href="{% url 'copyTrading' %}">Copy Trading</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-info text-bold nav-link" href="{% url 'settings' %}">Settings</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item m-1">
+                    <a class="text-info text-bold nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i></a>
+
+                </li>
+                <li class="nav-item m-2">
+                    <span class="text-info text-bold">{{ user_profile.get_user_name }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-globe"></i></a>
+                    <ul class="dropdown-menu p-1">
+                        <li>
+                            <a style="height: 30px;" class="nav-link d-flex justify-content-between" href="#">
+                                <img class="image-fluid" src="{% static 'img/englishflag.png' %}">
+                                <span>ENGLISH</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="height: 30px;" class="nav-link d-flex justify-content-between" href="#">
+                                <img class="image-fluid" src="{% static 'img/franceflag.jpg' %}">
+                                FRANCAIS
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="text-info text-bold nav-link" href="{% url 'logout' %}">Signout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+

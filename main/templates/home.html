@@ -1,0 +1,1230 @@
+{% load static %}
+<html class="no-js" lang="zxx">
+<head>
+    <title>CRYPTO-CURRANCY</title>
+    <meta name="theme-color" content="#141e30"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="icon" href="{% static 'img/logosmall.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/fontawesome.js' %}"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <style>
+        /* 02d29a */
+        .text-orange, .text-orange:hover{
+            color: #fd7e14;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .max-content{
+            width: max-content;
+        }
+        .bg-royal{
+            background: darkslategrey;
+            color: white;
+        }
+        .text-royal{
+            color: darkslategrey;
+        }
+        .image-fluid{
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            background: #fefefe;
+        }
+        .topalert{
+            width: 100%;
+            height: 20px;
+            background: #fd7e14;
+            overflow: hiddden;
+        }
+
+
+        #navbar{
+            width: 100%;
+            height: 80px;
+            margin-top: 20px;
+            padding-right: 10px;
+            padding-left: 10px;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: none;
+        }
+        .navbarlink{
+            color: darkslategrey;
+            font-size: 12px;
+        }
+        .navbarlink:hover{
+            font-size: 12px;
+            color: #fd7e14;
+        }
+        .btn-orange{
+            border: 2px solid #fd7e14;
+            border-radius: 25px;
+            background: #fd7e14;
+            color: white;
+        }
+        .btn-outline-orange{
+            border: 2px solid #fd7e14;
+            border-radius: 25px;
+            background: transparent;
+            color: darkslategrey;
+        }
+        .btn-outline-orange:hover, .btn-outline-orange:focus{
+            outline: none;
+            border: 2px solid #fd7e14;
+            border-radius: 25px;
+            background: #fd7e14;
+            color: white;
+        }
+        .dropdown-menu li{
+            text-align: center;
+        }
+        .dropdown-menu li:hover{
+            background: #f4f4f4;
+        }
+        .dropdown-menu li a.nav-link{
+            width: 100%;
+            height: 30px;
+            display: block;
+        }
+        .navbarMenuToggler{
+            position: absolute;
+            visibility: hidden;
+            z-index: -5;
+        }
+        .menuToggler{
+            font-size: 30px;
+        }
+
+
+
+
+
+
+        #menu{
+            position: fixed;
+            top: -100%;
+            left: 0;
+            z-index: 3000;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: #fefefe;
+            transition: all 0.2s ease;
+        }
+        .menuCloser{
+            font-size: 40px;
+        }
+
+
+
+        .section{
+            padding: 30px;
+        }
+
+
+        .benefits-card{
+            background: #f4f4f4;
+            border: none;
+            height: 100%;
+            transition: all 0.2s ease;
+        }
+        .benefits-card:hover{
+            transform: scale(1.03);
+        }
+        .pricing-card{
+            transition: all 0.2s ease;
+        }
+        .pricing-card:hover{
+            transform: scale(1.02);
+        }
+
+        @media(max-width: 910px){
+            .smallWidthHide, .smallWidthHide .nav-item, .smallWidthHide .nav-link{
+                width: 0;
+                height: 0;
+                visibility: hidden;
+                position: absolute;
+                z-index: -5;
+            }
+        }
+
+        @media(max-width: 767px){
+            .topalert{
+                width: 0;
+                height: 0;
+                visibility: hidden;
+                position: absolute;
+                z-index: -5;
+            }
+            .navbarMenuToggler{
+                position: static;
+                visibility: visible;
+                z-index: 0;
+            }
+            .menuToggler{
+                position: absolute;
+                visibility: hidden;
+            }
+            #navbar{
+                position: fixed;
+                top: -20px;
+                left: 0;
+                z-index: 2000;
+                background: #f4f4f4;
+            }
+            body{
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topalert text-center">
+        <h6 class="text-white">CRYPTO-CURRANCY is live => <a href="{% url 'login_view' %}" class="text-white">try it now</a></h6>
+    </div>
+
+
+    <nav id="navbar" class="d-flex justify-content-between">
+        <div class="nav-item" style="height: 100%;">
+            <a class="navbar-brand" style="height: 100%;">
+                <img class="image-fluid logoimg" src="{% static 'img/logolarge.svg' %}">
+            </a>
+        </div>
+        <ul class="nav d-flex">
+            <div class="d-flex p-2 smallWidthHide">
+                <li class="nav-item">
+                    <a class="nav-link navbarlink" href="#!">Trading Bots</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbarlink" href="#!">Copy Trading</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbarlink" href="#!">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbarlink" href="#!">FAQ</a>
+                </li>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-globe"></i></a>
+                <ul class="dropdown-menu p-1">
+                    <li>
+                        <a class="nav-link d-flex justify-content-between" href="#">
+                            <img class="image-fluid" src="{% static 'img/englishflag.png' %}">
+                            <span>ENGLISH</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link d-flex justify-content-between" href="#">
+                            <img class="image-fluid" src="{% static 'img/franceflag.jpg' %}">
+                            FRANCAIS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <li class="nav-item p-2">
+                <a href="{% url 'login_view' %}" class="nav-link navbarlink">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'signup_view' %}" class="nav-link btn btn-outline-orange">Sign up</a>
+            </li>
+            <li class="nav-item navbarMenuToggler pt-2">
+                <a href="#!" onclick="showmenu()" class="nav-link text-orange"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <a href="#!" onclick="showmenu()" class="nav-link sticky-top menuToggler text-orange max-content"><i class="fas fa-bars"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="menu">
+        <div class="d-flex justify-content-between">
+            <div class="closebtn">
+                <a href="#!" onclick="hidemenu()" class="nav-link menuCloser bold text-orange">&times;</a>
+            </div>
+            <ul class="nav d-flex pt-3">
+                <li class="nav-item p-2">
+                    <a href="{% url 'login_view' %}" class="nav-link navbarlink">Sign in</a>
+                </li>
+                <li class="nav-item p-2">
+                    <a href="{% url 'signup' %}" class="nav-link navbarlink">Sign up</a>
+                </li>
+                <a class="nav-link dropdown-toggle p-3" data-toggle="dropdown"><i class="fas fa-globe"></i></a>
+                <ul class="dropdown-menu p-1">
+                    <li>
+                        <a class="nav-link d-flex justify-content-between" href="#">
+                            <img class="image-fluid" src="{% static 'img/englishflag.png' %}">
+                            <span>ENGLISH</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link d-flex justify-content-between" href="#">
+                            <img class="image-fluid" src="{% static 'img/franceflag.jpg' %}">
+                            FRANCAIS
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+        <div class="row d-md-flex justify-content-md-between p-3">
+            <div class="col-md-4 p-2">
+                <a data-toggle="collapse" data-target="#platform" class="nav-link navbarlink menulistheader"><h4>Platform</h4></a>
+                <div id="platform" class="smallWidthCollapse">
+                    <a href="#!" class="navbarlink nav-link">Features</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Terminal</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bots</a>
+                    <a href="#!" class="navbarlink nav-link">Copy-Trading</a>
+                    <a href="#!" class="navbarlink nav-link">TradingView Automated Trading</a>
+                    <a href="#!" class="navbarlink nav-link">Pricing</a>
+                    <a href="#!" class="navbarlink nav-link">FAQ</a>
+                    <a href="#!" class="navbarlink nav-link">Documentation Free TradingView Scripts Crypto Signals</a>
+                </div>
+            </div>
+            <div class="col-md-4 p-2">
+                <a data-toggle="collapse" data-target="#company" class="nav-link navbarlink menulistheader"><h4>Company</h4></a>
+                <div id="company" class="smallWidthCollapse">                    
+                    <a href="#!" class="navbarlink nav-link">About Wunderbit</a>
+                    <a href="#!" class="navbarlink nav-link">Blog</a>
+                    <a href="#!" class="navbarlink nav-link">Buy Bitcoin </a>
+                </div>
+            </div>
+            <div class="col-md-4 p-2">
+                <a data-toggle="collapse" data-target="#ftbots" class="nav-link navbarlink menulistheader"><h4>Free Trading Bots</h4></a>
+                <div id="ftbots" class="smallWidthCollapse">
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for Binance</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for Bybit</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for Deribit</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for FTX</a>
+                </div>
+            </div>
+        </div>
+        <ul class="nav d-flex mt-5 justify-content-center">
+            <li class="nav-item">
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="nav-item">    
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">    
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-youtube"></i></a>
+            </li>
+            <li class="nav-item"></li>
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-telegram-plane"></i></a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <div class="row d-md-flex justify-content-md-between p-2">
+            <div class="col-md-6 p-2">
+                <h3 class="text-royal bold">
+                    Automated crypto trading platform
+                </h3>
+                <div class="d-flex">
+                    <div class="p-1">
+                        <p class="bg-royal p-1">Crypto Trading Bot </p>
+                    </div>
+                    <div class="p-1">
+                        <p class="bg-royal p-1">Trading Terminal </p>
+                    </div>
+                    <div class="p-1">
+                        <p class="bg-royal p-1">Copy Trading</p>
+                    </div>
+                </div>
+                <p class="text-royal">
+                    Wunderbit Trading is a platform that allows you to start trading and investing in cryptocurrency seamlessly.
+                    Copy trade the best crypto traders with transparent track record, trade yourself using the advanced trading terminal or create fully automated trading bot using TradingView.
+                </p>
+                <a href="{% url 'signup' %}" class="btn btn-orange">Sign up now -></a>
+            </div>
+            <div class="col-md-6 p-2">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/A3hfDGCNAWc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="p-2">
+            <h5 class="text-royal">Connected exchanges</h5>
+            <ul class="nav d-flex justify-content-center p-2">
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp1.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp2.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp3.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp4.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp5.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp6.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp7.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp8.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp9.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp10.webp' %}">
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="p-2">
+            <h5 class="text-royal">Coming soon</h5>
+            <ul class="nav d-flex justify-content-center p-2">
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp1.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp2.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp3.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp4.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp5.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp6.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp7.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp8.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp9.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp10.webp' %}">
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </section>
+
+
+    
+
+
+
+
+
+
+    <section class="section bg-royal p-5">
+        <div class="row d-flex justify-content-between">
+            <div class="col-12 mb-4 col-sm-4">
+              <div class="block-counter-1">
+                <h2 class="text-center"><span class="number text-white bold"><span>2000</span>+</span></h2>
+                <h6 class="text-center bold"><span class="caption text-orange">Users</span></h6>
+              </div>
+            </div>
+            <div class="col-12 mb-4 col-sm-4">
+              <div class="block-counter-1">
+                <h2 class="text-center"><span class="number text-white bold"><span>1000</span>+</span></h2>
+                <h6 class="text-center bold"><span class="caption text-orange">bots</span></h6>
+              </div>
+            </div>
+            <div class="col-12 mb-4 col-sm-4">
+              <div class="block-counter-1">
+                <h2 class="text-center"><span class="number text-white bold"></span>$</span><span>21</span>m</span></h2>
+                <h6 class="text-center bold"><span class="caption text-orange">30-day Volume</span></h6>
+              </div>
+            </div>
+          </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <h3 class="text-royal mt-5 text-center bold">Unleash Fully Automated Trading</h3>
+        <h6 class="text-royal mt-5 text-center">Discover the benefits of fully automated trading system.</h6>
+        <div class="row justify-content-between p-2">
+            <div class="col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/cardimg1.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            Access to Additional Capital With Copy Trading
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            Crypto Traders can connect with thousands of new followers and create consistent profit. All crypto trading strategies created by the trader or bot will be copied by the follower. Become the best crypto trader and receive extra profits through mirror trading.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/cardimg2.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            Zero Fees
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            All trading tools are absolutely free of charge for crypto traders, unlike other trading platforms (3commas, Cryptohopper, Haasbot). Trader can start trading with his own capital with zero commission per trade and no monthly subscription on our platform.                        
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/cardimg3.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            Access to Additional Capital With Copy Trading
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            Crypto Traders can connect with thousands of new followers and create consistent profit. All crypto trading strategies created by the trader or bot will be copied by the follower. Become the best crypto trader and receive extra profits through mirror trading.                        
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/cardimg4.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            Multiple Account Management
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            Traders can easily manage multiple crypto exchange accounts, either manually through the trading terminal or automatically through bots. For example, when creating a trading strategy, you can choose several API accounts from the same exchange and trade on all of them simultaneously.                        
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 text-center">
+            <span class="text-royal"><a href="{% url 'signup' %}" class="navbarlink">Sign up now</a> to automate your crypto trading strategies!</span>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <h3 class="text-royal mt-5 text-center bold">Crypto Trading Bot</h3>
+        <h6 class="text-royal mt-5 text-center"><a href="#!" class="navbarlink">Free TradingView scripts automation.</a></h6>
+        <div class="row justify-content-between p-2">
+            <div class="col-md-6 p-2">
+                <div class="imgdiv">
+                    <img class="image-fluid" src="{% static 'img/trading-bots.webp' %}">
+                </div>
+            </div>
+            <div class="col-md-6 p-2">
+                <h6 class="text-royal bold">
+                    Wunderbit Trading will help you to automate any TradingView scripts into the fully functioning crypto trading bot. With our easy to use automated trading software you can construct and adjust any crypto bot in a matter of seconds. 
+                </h6>
+                <br/>
+                <h6 class="text-royal bold">
+                    How it works?                 
+                </h6>
+                <br/>
+                <h6 class="text-royal bold">
+                    With TradingView’s PineEditor you get the most powerful tool to create your crypto trading strategies. You can backtest these strategies and easily apply them to any crypto pair and timeframe. You can then set up trading alerts each time your strategy suggests to buy or sell. When the alert will be triggered it will be automatically sent to Wunderbit Trading and we will convert these alerts into the trading orders and send them to the exchange.
+                    Using best tradingview scripts together with Wunderbit automated trading system you can create unlimited number of cryptocurrency trading bots and grow your crypto portfolio seamlessly.
+                </h6>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="section">
+        <div class="row d-md-flex justify-content-md-between">
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-orange text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-royal text-center bold">Limit entries</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-orange text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-royal text-center bold">Multiple entries</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-orange text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-royal text-center bold">Partial Take Profit</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-orange text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-royal text-center bold">Trailing Stop</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-orange text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-royal text-center bold">Take Profit and Stop Loss</h6>
+            </div>
+            <div class="col-md-2 col-sm-4 p-3">
+                <h4 class="text-orange text-center"><i class="fas fa-check-circle"></i></h4>
+                <h6 class="text-royal text-center bold">Order size in % or fixed amount ($)</h6>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section">
+        <h3 class="text-royal mt-5 text-center bold">Trading Terminal</h3>
+        <h6 class="text-royal mt-5 text-center">
+            Multi-exchange crypto trading terminal with strategy automation allows you to set Take Profit and Stop Loss on every exchange you trade.
+        </h6>
+        <div class="p-5">
+            <img class="image-fluid" src="{% static 'img/trading_terminal.webp' %}">
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section bg-royal p-5">
+        <div class="p-2">
+            <h3 class="text-orange text-center bold">Media coverage</h3>
+            <ul class="nav d-flex justify-content-center p-2">
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp1.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp2.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp3.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp4.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp5.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp6.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp7.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp8.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp9.webp' %}">
+                    </a>
+                </li>
+                <li class="nav-item" style="width: 200px; height: 80px;">
+                    <a href="#!" class="nav-link" style="width:100%; height: 100%;">
+                        <img class="image-fluid" src="{% static 'img/sp10.webp' %}">
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <h3 class="text-royal mt-5 text-center bold">Copy Trade the Best Traders and Bots</h3>
+        <h6 class="text-royal mt-5 text-center">Safe, simple, and secure way to start cryptocurrency investment.</h6>
+        <div class="row justify-content-between p-2">
+            <div class="col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/card2img1.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            Make Your Crypto Investment Work
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            Copy-Trader can select a trader of his choice, who would manage his funds for a commission which will be deducted only from profitable trades. For example: the selected trader earned 10% gain on Copy-Trader's capital. Out of that 10% only, Copy-Trader will have to pay a commission to the trader. In case of zero-profit or a loss no commission is charged.    
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/card2img2.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            Top Traders & Bots
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            All traders on the platform compete in a free market environment. Wunderbit provides numerous performance metrics and statistics as a tool for Copy-Trader to select a trader or bot that suits personal risk-return preferences.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/card2img3.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            No Risk of Fraud
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            All mirror trading connections are established and managed on Wunderbit platform using the API keys of the exchange. This will allow Copy-Traders to execute trades on the account automatically and will restrict traders from moving your funds anywhere. Thus, there is zero risk your funds will be stolen.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/card2img4.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            Transparency & Control
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            In the Wunderbit's cabinet, you will be able to see each crypto trade that is executed by your trader. And the best part is that there is no fixed contract, which binds you to stay with the trader. One-click and you are disengaged from the trader you follow.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-2">
+                <div class="card benefits-card p-4">
+                    <div class="cardimg mt-3">
+                        <img class="image-fluid float-left" src="{% static 'img/card2img5.svg' %}">
+                    </div>
+                    <div class="cardheader mt-3">
+                        <h3 class="text-royal bold">
+                            In-House Crypto Exchange
+                        </h3>
+                    </div>
+                    <div class="cardbody mt-3">
+                        <h6 class="text-royal bold">
+                            Wunderbit has its own licenced crypto exchange that allows you to buy and sell bitcoin & other cryptocurrencies with credit card, Skrill or bank transfers. So you can enter and exit the crypto world without any restrictions.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 text-center">
+            <span class="text-royal"><a href="{% url 'signup' %}" class="navbarlink">Sign up now</a> and start copy trade the best traders today! </span>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <h3 class="text-royal mt-5 text-center bold">Crypto Signals</h3>
+        <h6 class="text-royal mt-5 text-center">Cryptocurrency trading is much easier with our crypto signals automation.</h6>
+        <div class="row justify-content-between mt-5 p-2">
+            <div class="col-md-6 p-2">
+                <h6 class="text-royal bold">
+                    With our advanced automated trading software, copy-traders can select best crypto trading signals and automatically follow them through Wunderbit Trading.
+                </h6>
+                <br/>
+                <h6 class="text-royal bold">
+                    As soon as the signal provider will generate a signal either manually or through a trading bot, your account will copy the trade with the same settings in real time. All providers of crypto signals are available in the Marketplace of Wunderbit Trading.
+                </h6>
+            </div>
+            <div class="col-md-6 p-2">
+                <div class="imgdiv">
+                    <img class="image-fluid" src="{% static 'img/crypto-signal.webp' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section bg-royal p-5">
+        <div class="p-2">
+            <h3 class="text-orange text-center bold">Pricing</h3>
+            <div class="row justify-content-md-between d-md-flex mt-4">
+                <div class="col-md-6 p-3">
+                    <div class="card pricing-card p-5 h-100">
+                        <div class="card-part">
+                            <h6 class="text-orange text-center bold">TRADER</h6>
+                            <h3 class="text-royal text-center bold">Free</h3>
+                            <h6 class="text-royal text-center bold">No monthly subscriptions</h6>
+                        </div>
+                        <hr>
+                        <div class="card-part">
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Trading Terminal</h6>
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Take Profit and Stop Loss</h6>
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Long and Short algorithms</h6>
+                        </div>
+                        <hr>
+                        <div class="card-part">
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Unlimited exchange APIs</h6>
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Unlimited trading limit</h6>
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Unlimited trading pairs</h6>
+                        </div>
+                        <hr>
+                        <div class="card-part">
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Unlimited bots</h6>
+                            <h6 class="text-royal"><i class="fas fa-check"></i> TradingView alert automation</h6>
+                        </div>
+                        <hr>
+                        <div class="card-part">
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Earn extra from copy trading</h6>
+                            <div style="width: 70%; margin: auto;">
+                                <button style="width: 100%;" class="btn btn-orange">Jion for free</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 p-3">
+                    <div class="card pricing-card p-5 h-100">
+                        <div class="card-part">
+                            <h6 class="text-orange text-center bold"> Investor / Copy trader</h6>
+                            <h3 class="text-royal text-center bold">Free</h3>
+                            <h6 class="text-royal text-center bold">No monthly subscriptions</h6>
+                            <h6 class="text-royal text-center bold mt-4">30% profit sharing (billed every 2 weeks)</h6>
+                        </div>
+                        <hr>
+                        <div class="card-part">
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Copy trade unlimited number of traders</h6>
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Copy trade unlimited number of bots</h6>
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Fully automated copy trading</h6>
+                        </div>
+                        <hr>
+                        <div class="card-part">
+                            <h6 class="text-royal"><i class="fas fa-check"></i> Unlimited API accounts</h6>
+                            <div style="width: 70%; margin: auto;">
+                                <button style="width: 100%;" class="btn btn-orange">Jion for free</button>
+                            </div>
+                            <h6 class="text-royal text-center bold">*0% profit sharing first month</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <h3 class="text-royal mt-5 text-center bold">Free TradingView Scripts</h3>
+        <div class="p-5">
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/D74fciPYhPg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section">
+        <h2 class="text-center text-royal bold">FAQ</h2>
+        <div class="faq1 p-md-5 p-3">
+            <h3 class="text-center text-royal bold">General</h3>
+            <div class="faqcard m-2 p-5 bg-light">
+                <a class="nav-link d-flex justify-content-between" href="#faqQ1" data-toggle="collapse">
+                    <h3 class="text-royal bold">What is Copy-Trading?</h3>
+                    <h3 class="text-orange bold"><i class="fas fa-caret-down"></i></h3>
+                </a>
+                <div id="faqQ1" class="collapse p-3">
+                    <hr>
+                    <h6 style="line-height: 1.5;" class="text-royal text-center bold">
+                        Copy-Trading - is a type of trading strategy when you follow one or group of traders. This social investing/trading allows you to make exactly the same trades as the professionals, and can be automated when you use a method called copy-trading or mirror-trading. That way, you can have the same results as the professional traders who operate in the same trading network, without having the knowledge they accumulated over the years of learning and trading. Probably one of the easiest ways to create a passive income stream for beginners and start trading and investing in cryptocurrency market.
+                    </h6>
+                </div>
+            </div>
+            <div class="faqcard m-2 p-5 bg-light">
+                <a class="nav-link d-flex justify-content-between" href="#faqQ2" data-toggle="collapse">
+                    <h3 class="text-royal bold">How to start with Wunderbit Trading?</h3>
+                    <h3 class="text-orange bold"><i class="fas fa-caret-down"></i></h3>
+                </a>
+                <div id="faqQ2" class="collapse p-3">
+                    <hr>
+                    <h6 style="line-height: 1.5;" class="text-royal text-center bold">
+                        You need to register on a platform and then select your role: Trader or Copy-Trader. For more detailed information on how to start with Wunderbit Trading please press here.    
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="faq2 p-md-5 p-3">
+            <h3 class="text-center text-royal bold">For Traders</h3>
+            <div class="faqcard m-2 p-5 bg-light">
+                <a class="nav-link d-flex justify-content-between" href="#faqQ21" data-toggle="collapse">
+                    <h3 class="text-royal bold">Can I put take profit and stop loss targets?</h3>
+                    <h3 class="text-orange bold"><i class="fas fa-caret-down"></i></h3>
+                </a>
+                <div id="faqQ21" class="collapse p-3">
+                    <hr>
+                    <h6 style="line-height: 1.5;" class="text-royal text-center bold">
+                        Yes. For each strategy and each order type you would be able to determine take profit and stop loss, therefore creating a complete strategy for your cryptocurrency trading.
+                    </h6>
+                </div>
+            </div>
+            <div class="faqcard m-2 p-5 bg-light">
+                <a class="nav-link d-flex justify-content-between" href="#faqQ22" data-toggle="collapse">
+                    <h3 class="text-royal bold">What is strategy?</h3>
+                    <h3 class="text-orange bold"><i class="fas fa-caret-down"></i></h3>
+                </a>
+                <div id="faqQ22" class="collapse p-3">
+                    <hr>
+                    <h6 style="line-height: 1.5;" class="text-royal text-center bold">
+                        In Wunderbit Trading you can create a strategy in which you can predetermine the entry and exit points of your deal.
+                        Available trading strategies:
+                        
+                        Long strategy
+                        
+                        For buy strategy you are starting with your base currency and in the first phase you buy your target crypto assets. Long BTC/USDT pair means that you are using your USDT amount to buy some BTC. In the second stage, our system will monitor stop loss and take profit, if you specified them, and as soon as one of them will be reached the market order will be executed to sell the amount of BTC that you possess for USDT.
+                        
+                        Short strategy
+                        
+                        For sell strategy your first step is to sell the crypto that you are currently holding. Short BTC/USDT means that you have BTC in your account and you would like to exchange them to USDT. In the second stage, our system will monitor stop loss and take profit, if you specified them, and as soon as one of them will be reached the market order will be executed to buy the BTC back based on the amount of USDT that you have.
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="faq3 p-md-5 p-3">
+            <h3 class="text-center text-royal bold">For Copy-Traders</h3>
+            <div class="faqcard m-2 p-5 bg-light">
+                <a class="nav-link d-flex justify-content-between" href="#faqQ31" data-toggle="collapse">
+                    <h3 class="text-royal bold">Do I have to transfer funds to Wunderbit Trading?</h3>
+                    <h3 class="text-orange bold"><i class="fas fa-caret-down"></i></h3>
+                </a>
+                <div id="faqQ31" class="collapse p-3">
+                    <hr>
+                    <h6 style="line-height: 1.5;" class="text-royal text-center bold">
+                        No, Wunderbit Trading does not store any crypto assets or fiat money. Your crypto assets stays at your Exchange account.
+                    </h6>
+                </div>
+            </div>
+            <div class="faqcard m-2 p-5 bg-light">
+                <a class="nav-link d-flex justify-content-between" href="#faqQ32" data-toggle="collapse">
+                    <h3 class="text-royal bold">Can I follow more than 1 trader at the same time?</h3>
+                    <h3 class="text-orange bold"><i class="fas fa-caret-down"></i></h3>
+                </a>
+                <div id="faqQ32" class="collapse p-3">
+                    <hr>
+                    <h6 style="line-height: 1.5;" class="text-royal text-center bold">
+                        Yes, you can follow as many Traders or Bots as you wish.
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer id="footer" class="section">
+        <div class="row d-md-flex justify-content-md-between p-3">
+            <div class="col-md-4 p-2">
+                <a data-toggle="collapse" data-target="#footerplatform" class="nav-link navbarlink menulistheader"><h4>Platform</h4></a>
+                <div id="footerplatform" class="smallWidthCollapse">
+                    <a href="#!" class="navbarlink nav-link">Features</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Terminal</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bots</a>
+                    <a href="#!" class="navbarlink nav-link">Copy-Trading</a>
+                    <a href="#!" class="navbarlink nav-link">TradingView Automated Trading</a>
+                    <a href="#!" class="navbarlink nav-link">Pricing</a>
+                    <a href="#!" class="navbarlink nav-link">FAQ</a>
+                    <a href="#!" class="navbarlink nav-link">Documentation Free TradingView Scripts Crypto Signals</a>
+                </div>
+            </div>
+            <div class="col-md-4 p-2">
+                <a data-toggle="collapse" data-target="#footercompany" class="nav-link navbarlink menulistheader"><h4>Company</h4></a>
+                <div id="footercompany" class="smallWidthCollapse">
+                    <a href="#!" class="navbarlink nav-link">About Wunderbit</a>
+                    <a href="#!" class="navbarlink nav-link">Blog</a>
+                    <a href="#!" class="navbarlink nav-link">Buy Bitcoin </a>
+                </div>
+            </div>
+            <div class="col-md-4 p-2">
+                <a data-toggle="collapse" data-target="#footerftbots" class="nav-link navbarlink menulistheader"><h4>Free Trading Bots</h4></a>
+                <div id="footerftbots" class="smallWidthCollapse">
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for Binance</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for Bybit</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for Deribit</a>
+                    <a href="#!" class="navbarlink nav-link">Trading Bot for FTX</a>
+                </div>
+            </div>
+        </div>
+        <ul class="nav d-flex mt-5 justify-content-center">
+            <li class="nav-item">
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="nav-item">    
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">    
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-youtube"></i></a>
+            </li>
+            <li class="nav-item"></li>
+                <a href="#!" class="nav-link text-royal"><i class="fab fa-telegram-plane"></i></a>
+            </li>
+        </ul>
+    </footer>
+
+
+
+
+
+
+</body>
+<script>
+    $(window).resize(function(){
+
+        if ($(window).width() <= 767) {  
+            $(".logoimg").attr('src','img/logosmall.svg');
+            $(".smallWidthCollapse").addClass('collapse');
+            $(".menulistheader").addClass('dropdown-toggle');
+        }     
+        else{
+            $(".logoimg").attr('src','img/logolarge.svg');
+            $(".smallWidthCollapse").removeClass('collapse');
+            $(".menulistheader").removeClass('dropdown-toggle');
+        }
+
+    });
+
+
+
+    function showmenu(){
+        $("#menu").css({'top':'0'});
+    }
+    function hidemenu(){
+        $("#menu").css({'top':'-100%'});
+    }
+
+
+
+
+    
+</script>
+</html>

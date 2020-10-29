@@ -1,0 +1,253 @@
+{% load static %}
+<html class="no-js" lang="zxx">
+<head>
+    <title>LOGIN</title>
+    <meta name="theme-color" content="#141e30"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/fontawesome.js' %}"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <style>
+        .bold{
+            font-weight: bold;
+        }
+        .max-content{
+            width: max-content;
+        }
+        .text-royal{
+            color: #03114d;
+        }
+        .image-fluid{
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: IBM Plex Mono,monospace;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, rgba(62, 118, 233, 0.133), white);
+        }
+        .langnavbar{
+            width: 100%;
+            height: auto;
+            min-height: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+        .dropdown-menu li{
+            text-align: center;
+        }
+        .dropdown-menu li:hover{
+            background: #f4f4f4;
+        }
+        .dropdown-menu li a.nav-link{
+            width: 100%;
+            height: 30px;
+            display: block;
+        }
+
+
+
+
+        #loginsec{
+            padding: 20px;
+            padding-top: 60px;
+        }
+        .input, .input:focus{
+            width: 100%;
+            height: 40px;
+            background: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid black;
+        }
+        .checkinput, .checkinput:checked{
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .submitbtndiv{
+            width: 200px;
+            height: 40px;
+        }
+        .btn-custom, .border-custom:focus{
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            border: none;
+            border: 2px solid dodgerblue;
+            background: transparent;
+            outline: none;
+            font-weight: bold;
+            color: dodgerblue;
+        }
+        .btn-custom:hover{
+            background: dodgerblue;
+            color: white;
+        }
+
+
+
+        #footer{
+            width: 100%;
+            height: auto;
+            background: white;
+            position: absolute;
+            top: end;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+    <div class="langnavbar">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-globe"></i></a>
+        <ul class="dropdown-menu p-1">
+            <li>
+                <a class="nav-link d-flex justify-content-between" href="#">
+                    <img class="image-fluid" src="{% static 'img/englishflag.png' %}">
+                    <span>ENGLISH</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link d-flex justify-content-between" href="#">
+                    <img class="image-fluid" src="{% static 'img/franceflag.jpg' %}">
+                    FRANCAIS
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+    <section id="loginsec">
+        {% block messages %}
+    {% include 'messages.html' %}
+    {% endblock messages %}
+        <div class="row d-flex justify-content-center p-2">
+            <div class="col-md-6 col-12 justify-content-cetner p-2">
+                <form id="signupform" method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                    <h2 class="text-center text-dark">SIGN UP</h2>
+                    {% if msg %}
+                    <div class="alert alert-{{case}}">
+                        <strong>{{msg}}</strong>
+                        <a href="#!" class="close" data-dismiss="alert">&times;</a>
+                    </div>
+                    {%endif%}
+                    <div class="form-group row justify-content-between p-2">
+                        <div class="col-6 p-2">
+                            <label for="fname" class="text-dark bold">First-Name*</label>
+                            <input class="input" type="text" id="fname" name="fname" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="col-6 p-2">
+                            <label for="lname" class="text-dark bold">Last-Name*</label>
+                            <input class="input" type="text" id="lname" name="lname" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="text-dark bold">Email-address*</label>
+                        <input class="input" type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="text-dark bold">Password*</label>
+                        <input class="input" type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="repass" class="text-dark bold">Repeat password*</label>
+                        <input class="input" type="password" id="repass" name="repass" placeholder="Repeat password" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="checkinput" type="checkbox" id="checkbox" name="checkbox">
+                        <label for="checkbox" class="text-dark bold">
+                            I certify that I am 18 years of age or older, and I agree to <a href="#!" class="text-info">Terms of use</a> and <a href="#!" class="text-info">Privacy Policy</a>. 
+                        </label>
+                    </div>
+                    <div style="width: max-content;" class="g-recaptcha mx-auto mt-2" data-sitekey="6LcBm9UZAAAAAA7xIxplJQ1GkPn5Br-LHY0WEcyg"></div>
+                    <div class="mx-auto submitbtndiv mt-2">
+                        <button type="submit" class="btn btn-custom">Sign up</button>
+                    </div>
+                </form>
+                <div class="mt-4">
+                    <a href="{% url 'login_view' %}" class="text-center nav-link">Already a member?</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <footer id="footer">
+        <div class="row d-md-flex justify-content-md-between">
+            <div class="col-md-6">
+                <h6 style="line-height: 40px;" class="bold text-center text-royal">CopyRight &copy; | All rights reserved</h6>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav d-flex justify-content-center">
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link text-royal">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link text-royal">TradingView</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link text-royal"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link text-royal"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link text-royal"><i class="fab fa-youtube"></i></a>
+                    </li>
+                        <a href="#!" class="nav-link text-royal"><i class="fab fa-telegram-plane"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+<script>
+    function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+    }
+
+</script>
+</html>

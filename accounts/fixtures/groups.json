@@ -1,0 +1,9 @@
+[
+  {
+    "model": "accounts.Group",
+    "pk": 1,
+    "fields": {
+      "group_name": "trader"
+    }
+  }
+]

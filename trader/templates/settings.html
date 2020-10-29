@@ -216,7 +216,8 @@
         <div class="tab-content pt-5">
             <div id="ProfileTab" class="tab-pane active">
                 <div class="p-2">
-                    <form class="p-2" method="post" action="">
+                    <form class="p-2" method="post" action="{% url 'user_update' %}">
+                        {% csrf_token %}
                         <div class="form-group col-md-6">
                             <label for="fname" class="text-info">Change Name</label>
                             <input class="form-control" type="text" name="first_name" id="fname" value="{{ user_profile.get_user_first_name }}">
@@ -231,7 +232,8 @@
                     </form>
                 </div>
                 <div class="p-2">
-                    <form class="p-2" method="post" action="">
+                    <form class="p-2" method="post" action="{% url 'user_update_description' %}">
+                        {% csrf_token %}
                         <div class="form-group col-md-6">
                             <label for="description" class="text-info">Write a description about yourself</label>
                             <textarea class="form-control" name="description" id="description" value="{{ user_profile.description }}" placeholder="description..."></textarea>

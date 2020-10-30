@@ -4,6 +4,8 @@ from django.contrib import messages
 from accounts.models.user_profile import UserProfile
 from django.contrib.auth.models import User
 
+import ccxt
+
 
 def logout(request):
     template_name = "login.html"
@@ -43,7 +45,9 @@ def login(request):
         context = {}
         user = User.objects.filter(pk=request.user.id).first()
         if user is not None:
+            user_profile = UserProfile.objects.get(user=user)
             template_name = "dashboard.html"
+            context['user_profile'] = user_profile
             return render(request, template_name=template_name, context=context)
         else:
 

@@ -4,6 +4,7 @@ from accounts.models.user_profile import UserProfile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+
 @login_required(login_url="login_view/")
 def user_update_description(request):
     if request.method == "POST":

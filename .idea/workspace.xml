@@ -2,54 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20b08847-3521-492a-9f34-0bf0e00973e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/accounts/models/group/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts/models/traders/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptocurrency-work.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0002_remove_hanguser_email.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0003_hanguser_email.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0004_auto_20201028_2344.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0005_userprofile_description.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/models/group/group.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models/group/group.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/models/traders/traders_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models/traders/traders_account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/user_profile/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/user_profile/models.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/activate" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/activate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/activate.csh" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/activate.csh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/activate.fish" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/activate.fish" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/activate.xsh" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/activate.xsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/chardetect" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/chardetect" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/chardetect-3.8" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/chardetect-3.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/chardetect3" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/chardetect3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/distro" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/distro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/distro-3.8" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/distro-3.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/distro3" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/distro3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/django-admin" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/django-admin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/django-admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/django-admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/easy_install" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/easy_install" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/easy_install-3.8" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/easy_install-3.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/easy_install3" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/easy_install3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/pip" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/pip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/pip-3.8" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/pip-3.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/pip3" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/pip3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/pip3.8" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/pip3.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/sqlformat" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/sqlformat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/wheel" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/wheel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/wheel-3.8" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/wheel-3.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/bin/wheel3" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/bin/wheel3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/lib/python3.8/site-packages/Django-3.1.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/lib/python3.8/site-packages/Django-3.1.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myvenv/lib/python3.8/site-packages/sqlparse-0.4.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/myvenv/lib/python3.8/site-packages/sqlparse-0.4.1.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/trader/templates/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/views/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

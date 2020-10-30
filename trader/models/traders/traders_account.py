@@ -16,8 +16,21 @@ class TraderAccounts(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
+
     @classmethod
-    def get_or_create_trader_account(cls, trader, account_name, api_key,kucoin_password, api_secret, exchange, base_currency
+    def create_trader_account(cls, trader, account_name, api_key, api_secret, exchange, base_currency):
+
+        cls.objects.create(
+            trader=trader,
+            account_name=account_name,
+            api_key=api_key,
+            api_secret=api_secret,
+            exchange=get_exchange,
+            base_currency=get_currency
+        )
+
+    @classmethod
+    def get_or_create_trader_account(cls, trader, account_name, api_key,kucoin_password, okex_password, api_secret, exchange, base_currency
                                      ):
         get_exchange = Exchange.objects.filter(pk=exchange).first()
         get_currency = BaseCurrency.objects.filter(pk=base_currency).first()
@@ -25,25 +38,92 @@ class TraderAccounts(models.Model):
         trader_account = cls.objects.filter(account_name=account_name).first()
 
         if trader_account is not None:
-            response = "exist"
+            res = "exist"
         else:
-            if exchange == "FTX":
-                cls.verify_API_AND_SECRET_BINANCE()
-            cls.objects.create(
-                trader=trader,
-                account_name=account_name,
-                api_key=api_key,
-                api_secret=api_secret,
-                exchange=get_exchange,
-                base_currency=get_currency
-            )
+            if get_exchange == "FTX":
+                response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
 
-            response = "saved"
+            if get_exchange == "BINANCE":
+                response, message = cls.verify_API_AND_SECRET_BINANCE(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "KUCOIN":
+                response, message = cls.verify_API_AND_SECRET_KUCOIN(api_key, api_secret, kucoin_password)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "BINANCE-FUTURE":
+                response, message = cls.verify_API_AND_SECRET_BINANCE(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "FTX-US":
+                response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "BYBIT":
+                response, message = cls.verify_API_AND_SECRET_BYBIT(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "HITBTC":
+                response, message = cls.verify_API_AND_SECRET_HITBTC(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "KRAKEN":
+                response, message = cls.verify_API_AND_SECRET_KRAKEN(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "OKEX":
+                response, message = cls.verify_API_AND_SECRET_OKEX(api_key, api_secret, okex_password)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
+
+            if get_exchange == "DERIBIT":
+                response, message = cls.verify_API_AND_SECRET_DERIBIT(api_key, api_secret)
+                if message:
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    res = "saved"
+                else:
+                    res = "error"
             
-        return response
+        return res, response
 
     @staticmethod
-    def verify_API_AND_SECRET_FTX(self, api_key, api_secret):
+    def verify_API_AND_SECRET_FTX(api_key, api_secret):
         try:
             ftx = ccxt.ftx({
                 'apiKey': api_key,
@@ -62,7 +142,7 @@ class TraderAccounts(models.Model):
         return response, message
 
     @staticmethod
-    def verify_API_AND_SECRET_KUCOIN(self, api_key, api_secret, kucoin_password):
+    def verify_API_AND_SECRET_KUCOIN(api_key, api_secret, kucoin_password):
         try:
             kucoin = ccxt.kucoin({
                 'apiKey': api_key,
@@ -72,19 +152,19 @@ class TraderAccounts(models.Model):
 
             fetch_balance = kucoin.fetch_balance()
 
-            message = "success"
+            message = True
 
             response = fetch_balance
 
         except Exception as e:
-            message = "failed"
+            message = False
 
             response = "An error occured: {}".format(e)
 
         return response, message
 
     @staticmethod
-    def verify_API_AND_SECRET_BINANCE(self, api_key, api_secret):
+    def verify_API_AND_SECRET_BINANCE(api_key, api_secret):
         try:
             binance = ccxt.binance({
                 'apiKey': api_key,
@@ -93,19 +173,19 @@ class TraderAccounts(models.Model):
 
             fetch_balance = binance.fetch_balance()
 
-            message = "success"
+            message = True
 
             response = fetch_balance
 
         except Exception as e:
-            message = "failed"
+            message = False
 
             response = "An error occured: {}".format(e)
 
         return response, message
 
     @staticmethod
-    def verify_API_AND_SECRET_KRAKEN(self, api_key, api_secret):
+    def verify_API_AND_SECRET_KRAKEN(api_key, api_secret):
         try:
             kraken = ccxt.kraken({
                 'apiKey': api_key,
@@ -114,19 +194,19 @@ class TraderAccounts(models.Model):
 
             fetch_balance = kraken.fetch_balance()
 
-            message = "success"
+            message = True
 
             response = fetch_balance
 
         except Exception as e:
-            message = "failed"
+            message = False
 
             response = "An error occured: {}".format(e)
 
         return response, message
 
     @staticmethod
-    def verify_API_AND_SECRET_BYBIT(self, api_key, api_secret):
+    def verify_API_AND_SECRET_BYBIT(api_key, api_secret):
         try:
             bybit = ccxt.bybit({
                 'apiKey': api_key,
@@ -135,19 +215,19 @@ class TraderAccounts(models.Model):
 
             fetch_balance = bybit.fetch_balance()
 
-            message = "success"
+            message = True
 
             response = fetch_balance
 
         except Exception as e:
-            message = "failed"
+            message = False
 
             response = "An error occured: {}".format(e)
 
         return response, message
 
     @staticmethod
-    def verify_API_AND_SECRET_OKEX(self, api_key, api_secret, orex_password):
+    def verify_API_AND_SECRET_OKEX(api_key, api_secret, orex_password):
         try:
             okex = ccxt.okex({
                 'apiKey': api_key,
@@ -157,19 +237,19 @@ class TraderAccounts(models.Model):
 
             fetch_balance = okex.fetch_balance()
 
-            message = "success"
+            message = True
 
             response = fetch_balance
 
         except Exception as e:
-            message = "failed"
+            message = False
 
             response = "An error occured: {}".format(e)
 
         return response, message
 
     @staticmethod
-    def verify_API_AND_SECRET_HITBTC(self, api_key, api_secret):
+    def verify_API_AND_SECRET_HITBTC(api_key, api_secret):
         try:
             hitbtc = ccxt.hitbtc({
                 'apiKey': api_key,
@@ -178,12 +258,33 @@ class TraderAccounts(models.Model):
 
             fetch_balance = hitbtc.fetch_balance()
 
-            message = "success"
+            message = True
 
             response = fetch_balance
 
         except Exception as e:
-            message = "failed"
+            message = False
+
+            response = "An error occured: {}".format(e)
+
+        return response, message
+
+    @staticmethod
+    def verify_API_AND_SECRET_DERIBIT(api_key, api_secret):
+        try:
+            deribit = ccxt.deribit({
+                'apiKey': api_key,
+                'secret': api_secret
+            })
+
+            fetch_balance = deribit.fetch_balance()
+
+            message = True
+
+            response = fetch_balance
+
+        except Exception as e:
+            message = False
 
             response = "An error occured: {}".format(e)
 

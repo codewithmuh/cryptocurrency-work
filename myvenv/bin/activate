@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/home/dunamis/lozpdata/trading/myvenv'
+VIRTUAL_ENV='/home/dunamis/lozpdata/cryptocurrency-work/myvenv'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

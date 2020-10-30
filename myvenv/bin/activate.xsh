@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/dunamis/lozpdata/trading/myvenv"
+$VIRTUAL_ENV = r"/home/dunamis/lozpdata/cryptocurrency-work/myvenv"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

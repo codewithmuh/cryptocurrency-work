@@ -1,7 +1,7 @@
 from accounts.models.user_profile import UserProfile
 from django.db import models
 from .exchange import Exchange
-from .base_currency import BaseCurrency
+from accounts.models.traders.base_currency import BaseCurrency
 
 
 class TraderAccounts(models.Model):

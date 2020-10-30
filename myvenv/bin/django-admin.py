@@ -1,4 +1,4 @@
-#!/home/dunamis/lozpdata/cryptocurrency-work/myvenv/bin/python
+#!/home/dunamis/lozpdata/trading/myvenv/bin/python
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

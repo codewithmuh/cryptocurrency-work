@@ -3,7 +3,6 @@ from django.db import models
 from .exchange import Exchange
 from .base_currency import BaseCurrency
 import ccxt
-from django.contrib import messages
 from .kucoin_password import KucoinPassword
 from .okex_password import OkexPassword
 

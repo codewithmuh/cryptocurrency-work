@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="20b08847-3521-492a-9f34-0bf0e00973e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/models/traders/kucoin_password.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/models/traders/kucoin_password.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/models/traders/okex_password.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/models/traders/okex_password.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trader/models/traders/traders_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/models/traders/traders_account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +60,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="98" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604085120132">
+      <screen x="0" y="27" width="1280" height="773" />
+    </state>
+    <state x="98" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1280.773@0.27.1280.773" timestamp="1604085120132" />
     <state x="373" y="163" width="524" height="507" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603979328849">
       <screen x="0" y="27" width="1280" height="773" />
     </state>

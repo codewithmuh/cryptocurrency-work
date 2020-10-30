@@ -26,8 +26,8 @@ class TraderAccounts(models.Model):
             account_name=account_name,
             api_key=api_key,
             api_secret=api_secret,
-            exchange=get_exchange,
-            base_currency=get_currency
+            exchange=exchange,
+            base_currency=base_currency
         )
         return account
 

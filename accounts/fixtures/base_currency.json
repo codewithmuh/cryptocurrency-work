@@ -1,0 +1,23 @@
+[
+  {
+    "model": "accounts.BaseCurrency",
+    "pk": 1,
+    "fields": {
+      "currency": "BTC"
+    }
+  },
+  {
+    "model": "accounts.BaseCurrency",
+    "pk": 2,
+    "fields": {
+      "currency": "ETH"
+    }
+  },
+  {
+    "model": "accounts.BaseCurrency",
+    "pk": 3,
+    "fields": {
+      "currency": "USDT"
+    }
+  }
+]

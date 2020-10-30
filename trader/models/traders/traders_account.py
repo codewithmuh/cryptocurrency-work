@@ -4,6 +4,8 @@ from .exchange import Exchange
 from .base_currency import BaseCurrency
 import ccxt
 from django.contrib import messages
+from .kucoin_password import KucoinPassword
+from .okex_password import OkexPassword
 
 
 class TraderAccounts(models.Model):
@@ -20,7 +22,7 @@ class TraderAccounts(models.Model):
     @classmethod
     def create_trader_account(cls, trader, account_name, api_key, api_secret, exchange, base_currency):
 
-        cls.objects.create(
+        account = cls.objects.create(
             trader=trader,
             account_name=account_name,
             api_key=api_key,
@@ -28,6 +30,7 @@ class TraderAccounts(models.Model):
             exchange=get_exchange,
             base_currency=get_currency
         )
+        return account
 
     @classmethod
     def get_or_create_trader_account(cls, trader, account_name, api_key,kucoin_password, okex_password, api_secret, exchange, base_currency
@@ -59,7 +62,11 @@ class TraderAccounts(models.Model):
             if get_exchange == "KUCOIN":
                 response, message = cls.verify_API_AND_SECRET_KUCOIN(api_key, api_secret, kucoin_password)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    account = cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    KucoinPassword.objects.create(
+                        trader_account=account,
+                        password=kucoin_password
+                    )
                     res = "saved"
                 else:
                     res = "error"
@@ -107,7 +114,11 @@ class TraderAccounts(models.Model):
             if get_exchange == "OKEX":
                 response, message = cls.verify_API_AND_SECRET_OKEX(api_key, api_secret, okex_password)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    account = cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    OkexPassword.objects.create(
+                        trader_account=account,
+                        password=okex_password
+                    )
                     res = "saved"
                 else:
                     res = "error"

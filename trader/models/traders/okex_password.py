@@ -1,0 +1,7 @@
+from .traders_account import TraderAccounts
+from django.db import models
+
+
+class OkexPassword(models.Model):
+    trader_account = models.OneToOneField(TraderAccounts, on_delete=models.CASCADE)
+    password = models.CharField(max_length=100, null=True, blank=True)

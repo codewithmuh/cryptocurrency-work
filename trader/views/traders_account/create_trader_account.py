@@ -17,12 +17,24 @@ def create_trader_account(request):
         exchange = request.POST.get('exchange','')
         base_currency = request.POST.get('currency', '')
 
-
         user = User.objects.get(pk=request.user.id)
 
         user_profile = UserProfile.objects.get(user=user)
 
         res, response = TraderAccounts.get_or_create_trader_account(
             trader=user_profile,
-
+            api_key=api_key,
+            api_secret=api_secret,
+            account_name=account_name,
+            exchange=exchange,
+            base_currency=base_currency,
+            kucoin_password=kucoin_password,
+            okex_password=okex_password
         )
+
+        if res == "exist":
+            messages.error(request, response)
+        if res == "error":
+            messages.error(request, response)
+        if res == "saved":
+            messages.success(request, response)

@@ -41,6 +41,7 @@ class TraderAccounts(models.Model):
 
         if trader_account is not None:
             res = "exist"
+            response = "Account Name Already Taken"
         else:
             if get_exchange == "FTX":
                 response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)

@@ -37,7 +37,10 @@ def update_trader_account(request, trader_id):
     }
     if request.method == "POST":
         template_name = "settings.html"
-        context = {}
+        context = {
+            "base_currencies": base_currencies,
+            "exchanges": exchanges
+        }
 
         user_profile = UserProfile.objects.get(user=request.user)
 
@@ -68,6 +71,7 @@ def update_trader_account(request, trader_id):
             messages.error(request, response)
         if res == "saved":
             context['response'] = response
+
             messages.success(request, "Account updated successfullly")
 
             context['trader_accounts'] = trader_accounts
@@ -87,7 +91,10 @@ def create_trader_account(request):
         "exchanges": exchanges
     }
     if request.method == "POST":
-        context = {}
+        context = {
+            "base_currencies": base_currencies,
+            "exchanges": exchanges
+        }
 
         user_profile = UserProfile.objects.get(user=request.user)
 
@@ -125,6 +132,7 @@ def create_trader_account(request):
         if res == "saved":
             template_name = "settings.html"
             context['response'] = response
+            print(response)
             messages.success(request, "Account created successfullly")
             context['trader_accounts'] = trader_accounts
 

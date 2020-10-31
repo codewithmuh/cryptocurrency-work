@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20b08847-3521-492a-9f34-0bf0e00973e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/trader/templates/trader_account.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trader/views/traders_account/trader_account_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/fixtures/base_currency.json" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/fixtures/base_currency.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/fixtures/exchange.json" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/fixtures/exchange.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/models/traders/traders_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/models/traders/traders_account.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trader/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/trader/templates/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/templates/trader_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/trader/templates/trader_account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

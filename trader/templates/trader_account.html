@@ -190,7 +190,7 @@
     </section>
 
     <div class="d-flex m-5 justify-content-center">
-        <div class="w-25">
+        <div class="w-50">
             <form action="{% url 'create_trader_Account' %}" method="POST">
             {% csrf_token %}
           <div class="form-group">
@@ -205,9 +205,17 @@
             <label for="exampleInputPassword2">Secret</label>
             <input type="text" name="secret" placeholder="Api Secret" class="form-control" id="exampleInputPassword2" required>
           </div>
+                <div class="form-group" style="display:none" id="kucoin_password">
+            <label for="kucoin_pass">Kucoin Password</label>
+            <input type="password" name="kucoin_password" placeholder="Password" class="form-control" id="kucoin_pass">
+          </div>
+                <div class="form-group" style="display:none" id="okex_password">
+            <label for="okex_pass">Okex Password</label>
+            <input type="text" name="okex_password" placeholder="Password" class="form-control" id="okex_pass">
+          </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Exchange</label>
-                <select class="form-control" name="exchange" id="exampleFormControlSelect1" required>
+                <label for="exchange">Exchange</label>
+                <select class="form-control" name="exchange" id="exchange" required>
                   <option selected disabled>Select Exchange</option>
                     {% for exchange in exchanges %}
                         <option value="{{ exchange.id }}">{{ exchange.name }}</option>
@@ -223,7 +231,7 @@
                     {% endfor %}
                 </select>
             </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-info">Submit</button>
 
         </form>
         </div>
@@ -235,6 +243,25 @@
 
 </body>
 <script>
+    let exchange = document.getElementById("exchange")
 
+    exchange.addEventListener("change", function(e){
+        var kucoin_pass = document.getElementById("kucoin_password")
+        var okex_pass = document.getElementById("okex_password")
+        if(e.currentTarget.value == 7){
+
+            kucoin_pass.style.display = "block"
+        }
+        else{
+            kucoin_pass.style.display = "none"
+        }
+        if(e.currentTarget.value == 8){
+
+            okex_pass.style.display = "block"
+        }
+        else{
+            okex_pass.style.display = "none"
+        }
+    })
 </script>
 </html>

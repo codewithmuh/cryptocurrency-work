@@ -267,7 +267,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "KRAKEN":
                 response, message = cls.verify_API_AND_SECRET_KRAKEN(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key,api_secret, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -338,12 +338,16 @@ class TraderAccounts(models.Model):
     @staticmethod
     def verify_API_AND_SECRET_BINANCE(api_key, api_secret):
         try:
-            binance = ccxt.binance({
-                'apiKey': api_key,
-                'secret': api_secret
+            exchange_id = 'binance'
+            exchange_class = getattr(ccxt, exchange_id)
+            exchange = exchange_class({
+                'apiKey': 'YOUR_API_KEY',
+                'secret': 'YOUR_SECRET',
+                'timeout': 30000,
+                'enableRateLimit': True,
             })
 
-            fetch_balance = binance.fetch_balance()
+            fetch_balance = exchange.fetch_balance()
 
             message = True
 

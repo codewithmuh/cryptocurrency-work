@@ -12,7 +12,16 @@ def update_trader_account(request, trader_id):
     if request.method == "POST":
         template_name = "settings.html"
         context = {}
-        
+
+        account_name = request.POST.get('account_name', '')
+        api_key = request.POST.get('api_key', '')
+        api_secret = request.POST.get('secret', '')
+        kucoin_password = request.POST.get('kucoin_password', '')
+        okex_password = request.POST.get('okex_password', '')
+        exchange = request.POST.get('exchange', '')
+        base_currency = request.POST.get('currency', '')
+
+
 
 
 

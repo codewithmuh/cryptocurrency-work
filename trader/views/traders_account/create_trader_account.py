@@ -1,4 +1,5 @@
 from trader.models.traders import TraderAccounts
+from django.shortcuts import render, redirect, HttpResponse
 import ccxt
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -7,8 +8,19 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required(login_url="login_view/")
+def update_trader_account(request, trader_id):
+    if request.method == "POST":
+        template_name = "settings.html"
+        context = {}
+        
+
+
+
+@login_required(login_url="login_view/")
 def create_trader_account(request):
     if request.method == "POST":
+        template_name = "settings.html"
+        context = {}
         account_name = request.POST.get('account_name','')
         api_key = request.POST.get('api_key','')
         api_secret = request.POST.get('secret', '')
@@ -37,4 +49,7 @@ def create_trader_account(request):
         if res == "error":
             messages.error(request, response)
         if res == "saved":
-            messages.success(request, response)
+            context['response'] = response
+            messages.success(request, "Account created successfullly")
+
+        return render(request, template_name=template_name, context=context)

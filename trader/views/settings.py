@@ -21,7 +21,8 @@ def user_update_description(request):
             user_profile.description = description
             user_profile.save()
             context['user_profile'] = user_profile
-            messages.success(request, template_name=template_name, context=context)
+            print(user_profile.description)
+            messages.success(request, "Description Updated successful")
         return render(request, template_name=template_name, context=context)
 
 

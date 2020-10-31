@@ -151,9 +151,10 @@
 <body>
     {% include 'navbar.html' %}
 
-
-
     <section class="section">
+        {% block messages %}
+        {% include 'messages.html' %}
+        {% endblock messages %}
         <div class="row d-md-flex justify-content-md-between">
             <div class="col-md-2 col-sm-4 p-3">
                 <h4 class="text-success text-center"><i class="fas fa-check-circle"></i></h4>
@@ -236,7 +237,7 @@
                         {% csrf_token %}
                         <div class="form-group col-md-6">
                             <label for="description" class="text-info">Write a description about yourself</label>
-                            <textarea class="form-control" name="description" id="description" value="{{ user_profile.description }}" placeholder="description..."></textarea>
+                            <textarea class="form-control" name="description" id="description" placeholder="description here">{{ user_profile.description }}</textarea>
                         </div>
                         <div class="form-group pl-2">
                             <button type="submit" class="btn btn-info">Save</button>

@@ -12,8 +12,14 @@ def delete_trader_account(request, trader_id):
     template_name = "settings.html"
     context = {}
 
+    user_profile = UserProfile.objects.get(user=request.user)
+
+    trader_accounts = TraderAccounts.objects.filter(trader=user_profile)
+
     trader_account = TraderAccounts.objects.filter(pk=trader_id).first()
     trader_account.delete()
+
+    context['trader_accounts'] = trader_accounts
 
     return render(request, template_name=template_name, context=context)
 
@@ -23,6 +29,10 @@ def update_trader_account(request, trader_id):
     if request.method == "POST":
         template_name = "settings.html"
         context = {}
+
+        user_profile = UserProfile.objects.get(user=request.user)
+
+        trader_accounts = TraderAccounts.objects.filter(trader=user_profile)
 
         account_name = request.POST.get('account_name', '')
         api_key = request.POST.get('api_key', '')
@@ -51,6 +61,8 @@ def update_trader_account(request, trader_id):
             context['response'] = response
             messages.success(request, "Account updated successfullly")
 
+            context['trader_accounts'] = trader_accounts
+
         return render(request, template_name=template_name, context=context)
 
 
@@ -59,6 +71,11 @@ def create_trader_account(request):
     if request.method == "POST":
         template_name = "settings.html"
         context = {}
+
+        user_profile = UserProfile.objects.get(user=request.user)
+
+        trader_accounts = TraderAccounts.objects.filter(trader=user_profile)
+
         account_name = request.POST.get('account_name','')
         api_key = request.POST.get('api_key','')
         api_secret = request.POST.get('secret', '')
@@ -89,5 +106,6 @@ def create_trader_account(request):
         if res == "saved":
             context['response'] = response
             messages.success(request, "Account created successfullly")
+            context['trader_accounts'] = trader_accounts
 
         return render(request, template_name=template_name, context=context)

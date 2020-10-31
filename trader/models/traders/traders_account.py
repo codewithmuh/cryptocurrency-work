@@ -82,19 +82,21 @@ class TraderAccounts(models.Model):
             else:
                 exchange, currency = cls.get_exchange_and_currency(exchange=exchange_id,base_currency=base_currency_id)
 
-                res, response = cls.verify_updated_exchange(api_key=api_key,api_secret=api_secret,kucoin_password=kucoin_password,
+                res, response = cls.verify_updated_exchange(trader_account,account_name=account_name,api_key=api_key,api_secret=api_secret,kucoin_password=kucoin_password,
                                             okex_password=okex_password,exchange=exchange, base_currency=currency)
 
             return res, response
 
 
     @classmethod
-    def verify_updated_exchange(cls,api_key, api_secret, kucoin_password, okex_password, exchange):
+    def verify_updated_exchange(cls,api_key, api_secret,trader_account,base_currency,account_name, kucoin_password, okex_password, exchange):
 
         if exchange.name == "FTX":
             response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name,api_key=api_key,
+                                          kucoin_password=kucoin_password,okex_password=okex_password,
+                                          api_secret=api_secret,exchange=exchange,base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -102,7 +104,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "BINANCE":
             response, message = cls.verify_API_AND_SECRET_BINANCE(api_key, api_secret)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -110,7 +114,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "KUCOIN":
             response, message = cls.verify_API_AND_SECRET_KUCOIN(api_key, api_secret, kucoin_password)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -118,7 +124,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "BINANCE-FUTURE":
             response, message = cls.verify_API_AND_SECRET_BINANCE(api_key, api_secret)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -126,7 +134,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "FTX-US":
             response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -134,7 +144,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "BYBIT":
             response, message = cls.verify_API_AND_SECRET_BYBIT(api_key, api_secret)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -142,7 +154,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "HITBTC":
             response, message = cls.verify_API_AND_SECRET_HITBTC(api_key, api_secret)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -158,7 +172,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "OKEX":
             response, message = cls.verify_API_AND_SECRET_OKEX(api_key, api_secret, okex_password)
             if message:
-
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"
@@ -166,7 +182,9 @@ class TraderAccounts(models.Model):
         if exchange.name == "DERIBIT":
             response, message = cls.verify_API_AND_SECRET_DERIBIT(api_key, api_secret)
             if message:
-                
+                cls.trader_account_update(trader_account, account_name=account_name, api_key=api_key,
+                                          kucoin_password=kucoin_password, okex_password=okex_password,
+                                          api_secret=api_secret, exchange=exchange, base_currency=base_currency)
                 res = "saved"
             else:
                 res = "error"

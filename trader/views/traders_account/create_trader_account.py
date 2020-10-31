@@ -8,6 +8,14 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required(login_url="login_view/")
+def delete_trader_account(request, trader_id):
+    template_name = "settings.html"
+    context = {}
+
+    trader_account = TraderAccounts.objects.filter(pk=trader_id).first()
+    trader_account.delete()
+
+    return render(request, template_name=template_name, context=context)
 
 
 @login_required(login_url="login_view/")
@@ -44,6 +52,7 @@ def update_trader_account(request, trader_id):
             messages.success(request, "Account updated successfullly")
 
         return render(request, template_name=template_name, context=context)
+
 
 @login_required(login_url="login_view/")
 def create_trader_account(request):

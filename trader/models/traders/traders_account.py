@@ -126,51 +126,47 @@ class TraderAccounts(models.Model):
         if exchange.name == "FTX-US":
             response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
             if message:
-                
+
                 res = "saved"
             else:
                 res = "error"
 
-        if get_exchange == "BYBIT":
+        if exchange.name == "BYBIT":
             response, message = cls.verify_API_AND_SECRET_BYBIT(api_key, api_secret)
             if message:
-                cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+
                 res = "saved"
             else:
                 res = "error"
 
-        if get_exchange == "HITBTC":
+        if exchange.name == "HITBTC":
             response, message = cls.verify_API_AND_SECRET_HITBTC(api_key, api_secret)
             if message:
-                cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+
                 res = "saved"
             else:
                 res = "error"
 
-        if get_exchange == "KRAKEN":
+        if exchange.name == "KRAKEN":
             response, message = cls.verify_API_AND_SECRET_KRAKEN(api_key, api_secret)
             if message:
-                cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+
                 res = "saved"
             else:
                 res = "error"
 
-        if get_exchange == "OKEX":
+        if exchange.name == "OKEX":
             response, message = cls.verify_API_AND_SECRET_OKEX(api_key, api_secret, okex_password)
             if message:
-                account = cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
-                OkexPassword.objects.create(
-                    trader_account=account,
-                    password=okex_password
-                )
+
                 res = "saved"
             else:
                 res = "error"
 
-        if get_exchange == "DERIBIT":
+        if exchange.name == "DERIBIT":
             response, message = cls.verify_API_AND_SECRET_DERIBIT(api_key, api_secret)
             if message:
-                cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
+                
                 res = "saved"
             else:
                 res = "error"

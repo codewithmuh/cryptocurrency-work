@@ -1,20 +1,20 @@
 [
   {
-    "model": "accounts.BaseCurrency",
+    "model": "trader.BaseCurrency",
     "pk": 1,
     "fields": {
       "currency": "BTC"
     }
   },
   {
-    "model": "accounts.BaseCurrency",
+    "model": "trader.BaseCurrency",
     "pk": 2,
     "fields": {
       "currency": "ETH"
     }
   },
   {
-    "model": "accounts.BaseCurrency",
+    "model": "trader.BaseCurrency",
     "pk": 3,
     "fields": {
       "currency": "USDT"

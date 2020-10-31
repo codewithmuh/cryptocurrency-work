@@ -1,69 +1,69 @@
 [
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 1,
     "fields": {
       "name": "BINANCE"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 2,
     "fields": {
       "name": "KRAKEN"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 3,
     "fields": {
       "name": "FTX"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 4,
     "fields": {
       "name": "BYBIT"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 5,
     "fields": {
       "name": "BINANCE-FUTURES"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 6,
     "fields": {
       "name": "DERIBIT"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 7,
     "fields": {
-      "name": "KICOIN"
+      "name": "KUCOIN"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 8,
     "fields": {
       "name": "OKEX"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 9,
     "fields": {
       "name": "HITBTC"
     }
   },
   {
-    "model": "accounts.Exchange",
+    "model": "trader.Exchange",
     "pk": 10,
     "fields": {
       "name": "FTX-US"

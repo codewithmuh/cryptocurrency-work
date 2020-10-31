@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from accounts.models.user_profile import UserProfile
 from django.contrib.auth.decorators import login_required
+from trader.models.traders import Exchange, BaseCurrency
 
 
 @login_required(login_url="login_view/")
@@ -26,6 +27,14 @@ def delete_trader_account(request, trader_id):
 
 @login_required(login_url="login_view/")
 def update_trader_account(request, trader_id):
+    template_name = "trader_account.html"
+    base_currencies = BaseCurrency.objects.filter()
+    exchanges = Exchange.objects.filter()
+
+    context = {
+        "base_currencies": base_currencies,
+        "exchanges": exchanges
+    }
     if request.method == "POST":
         template_name = "settings.html"
         context = {}
@@ -64,12 +73,20 @@ def update_trader_account(request, trader_id):
             context['trader_accounts'] = trader_accounts
 
         return render(request, template_name=template_name, context=context)
+    return render(request, template_name=template_name, context=context)
 
 
 @login_required(login_url="login_view/")
 def create_trader_account(request):
+    template_name = "trader_account.html"
+    base_currencies = BaseCurrency.objects.filter()
+    exchanges = Exchange.objects.filter()
+
+    context = {
+        "base_currencies": base_currencies,
+        "exchanges": exchanges
+    }
     if request.method == "POST":
-        template_name = "settings.html"
         context = {}
 
         user_profile = UserProfile.objects.get(user=request.user)
@@ -100,12 +117,16 @@ def create_trader_account(request):
         )
 
         if res == "exist":
+            template_name = "trader_account.html"
             messages.error(request, response)
         if res == "error":
+            template_name = "trader_account.html"
             messages.error(request, response)
         if res == "saved":
+            template_name = "settings.html"
             context['response'] = response
             messages.success(request, "Account created successfullly")
             context['trader_accounts'] = trader_accounts
 
         return render(request, template_name=template_name, context=context)
+    return render(request, template_name=template_name, context=context)

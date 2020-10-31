@@ -79,6 +79,7 @@ class TraderAccounts(models.Model):
             account_exist = cls.check_account_name_exist(account_name=account_name)
             if account_exist:
                 res = "exist"
+                response = "Account name already Taken"
             else:
                 exchange, currency = cls.get_exchange_and_currency(exchange=exchange_id,base_currency=base_currency_id)
 

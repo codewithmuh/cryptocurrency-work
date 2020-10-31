@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required(login_url="login_view/")
+
+
+@login_required(login_url="login_view/")
 def update_trader_account(request, trader_id):
     if request.method == "POST":
         template_name = "settings.html"
@@ -21,9 +24,26 @@ def update_trader_account(request, trader_id):
         exchange = request.POST.get('exchange', '')
         base_currency = request.POST.get('currency', '')
 
+        res, response = TraderAccounts.update_trader_account(
+            trader_id=trader_id,
+            account_name=account_name,
+            api_key=api_key,
+            api_secret=api_secret,
+            kucoin_password=kucoin_password,
+            okex_password=okex_password,
+            exchange_id=exchange,
+            base_currency_id=base_currency
+        )
 
+        if res == "exist":
+            messages.error(request, response)
+        if res == "error":
+            messages.error(request, response)
+        if res == "saved":
+            context['response'] = response
+            messages.success(request, "Account updated successfullly")
 
-
+        return render(request, template_name=template_name, context=context)
 
 @login_required(login_url="login_view/")
 def create_trader_account(request):

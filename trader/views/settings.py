@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from accounts.models.user_profile import UserProfile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from trader.models.traders import TraderAccounts
 
 
 @login_required(login_url="login_view/")
@@ -53,15 +54,19 @@ def user_profile_settings(request):
         return render(request, template_name=template_name, context=context)
 
 
+@login_required(login_url="login_view/")
 def settings_view(request):
     context = {}
 
     user = User.objects.filter(pk=request.user.id).first()
+    user_profile = UserProfile.objects.filter(user=user).first()
 
     if user is not None:
+        trader_accounts = TraderAccounts.objects.filter(trader=user_profile)
         user_profile = UserProfile.objects.get(user=user)
         template_name = "settings.html"
         context['user_profile'] = user_profile
+        context['trader_accounts'] = trader_accounts
         return render(request, template_name=template_name, context=context)
     else:
         template_name = "login.html"

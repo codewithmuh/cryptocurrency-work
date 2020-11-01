@@ -5,7 +5,31 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from accounts.models.user_profile import UserProfile
 from django.contrib.auth.decorators import login_required
-from trader.models.traders import Exchange, BaseCurrency
+from trader.models.traders import Exchange, BaseCurrency, KucoinPassword, OkexPassword
+
+
+@login_required(login_url="login_view/")
+def get_trader_account(request, trader_id):
+    template_name = "get_trader_account.html"
+    trader_account = TraderAccounts.objects.get(pk=trader_id)
+    base_currencies = BaseCurrency.objects.filter()
+    exchanges = Exchange.objects.filter()
+
+    context = {
+        "trader_account": trader_account,
+        "base_currencies": base_currencies,
+        "exchanges": exchanges
+    }
+
+    kucoin_pass = KucoinPassword.objects.filter(trader_account=trader_account).first()
+    okex_pass = OkexPassword.objects.filter(trader_account=trader_account).first()
+
+    if kucoin_pass is not None:
+        context['kucoin_pass'] = kucoin_pass
+    if okex_pass is not None:
+        context['okex_pass'] = okex_pass
+
+    return render(request, template_name=template_name, context=context)
 
 
 @login_required(login_url="login_view/")
@@ -31,10 +55,6 @@ def update_trader_account(request, trader_id):
     base_currencies = BaseCurrency.objects.filter()
     exchanges = Exchange.objects.filter()
 
-    context = {
-        "base_currencies": base_currencies,
-        "exchanges": exchanges
-    }
     if request.method == "POST":
         template_name = "settings.html"
         context = {
@@ -86,10 +106,6 @@ def create_trader_account(request):
     base_currencies = BaseCurrency.objects.filter()
     exchanges = Exchange.objects.filter()
 
-    context = {
-        "base_currencies": base_currencies,
-        "exchanges": exchanges
-    }
     if request.method == "POST":
         context = {
             "base_currencies": base_currencies,

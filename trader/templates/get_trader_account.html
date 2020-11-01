@@ -191,32 +191,32 @@
 
     <div class="d-flex m-5 justify-content-center">
         <div class="w-50">
-            <form action="{% url 'create_trader_Account' %}" method="POST">
+            <form action="{% url 'update_trader_Account' trader_account.id %}" method="POST">
             {% csrf_token %}
           <div class="form-group">
             <label for="exampleInputEmail1">Name Of Account</label>
-            <input type="text" class="form-control" placeholder="Account Name" name="account_name" id="exampleInputEmail1" required>
+            <input type="text" class="form-control" value="{{ trader_account.trader.get_user_full_name }}" placeholder="Account Name" name="account_name" id="exampleInputEmail1" required>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">API</label>
-            <input type="text" name="api_key" placeholder="Api Key" class="form-control" id="exampleInputPassword1" required>
+            <input type="text" name="api_key" value="{{ trader_account.api_key }}" placeholder="Api Key" class="form-control" id="exampleInputPassword1" required>
           </div>
             <div class="form-group">
             <label for="exampleInputPassword2">Secret</label>
-            <input type="text" name="secret" placeholder="Api Secret" class="form-control" id="exampleInputPassword2" required>
+            <input type="text" name="secret" value="{{ trader_account.api_secret }}" placeholder="Api Secret" class="form-control" id="exampleInputPassword2" required>
           </div>
                 <div class="form-group" style="display:none" id="kucoin_password">
             <label for="kucoin_pass">Kucoin Password</label>
-            <input type="password" name="kucoin_password" placeholder="Password" class="form-control" id="kucoin_pass">
+            <input type="password" value="{{ kucoin_pass.password }}" name="kucoin_password" placeholder="Password" class="form-control" id="kucoin_pass">
           </div>
                 <div class="form-group" style="display:none" id="okex_password">
             <label for="okex_pass">Okex Password</label>
-            <input type="text" name="okex_password" placeholder="Password" class="form-control" id="okex_pass">
+            <input type="text" value="{{ okex_pass.password }}" name="okex_password" placeholder="Password" class="form-control" id="okex_pass">
           </div>
             <div class="form-group">
                 <label for="exchange">Exchange</label>
                 <select class="form-control" name="exchange" id="exchange" required>
-                  <option selected disabled>Select Exchange</option>
+                  <option selected value="{{ trader_account.exchange.id }}">{{ trader_account.exchange.name }}</option>
                     {% for exchange in exchanges %}
                         <option value="{{ exchange.id }}">{{ exchange.name }}</option>
                     {% endfor %}
@@ -225,13 +225,13 @@
             <div class="form-group">
                 <label for="exampleFormControlSelect2">Base Currency</label>
                 <select class="form-control" name="currency" id="exampleFormControlSelect2" required>
-                  <option selected disabled>Select Currency</option>
+                  <option selected value="{{ trader_account.base_currency.id }}">{{ trader_account.base_currency.currency }}</option>
                     {% for currency in base_currencies %}
                         <option value="{{ currency.id }}">{{ currency.currency }}</option>
                     {% endfor %}
                 </select>
             </div>
-          <button type="submit" class="btn btn-info">Submit</button>
+          <button type="submit" class="btn btn-info">Save</button>
         </form>
         </div>
     </div>

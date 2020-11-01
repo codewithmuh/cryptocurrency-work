@@ -76,17 +76,13 @@ class TraderAccounts(models.Model):
         trader_account = cls.objects.filter(pk=trader_id).first()
 
         if trader_account is not None:
-            account_exist = cls.check_account_name_exist(account_name=account_name)
-            if account_exist:
-                res = "exist"
-                response = "Account name already Taken"
-            else:
-                exchange, currency = cls.get_exchange_and_currency(exchange=exchange_id,base_currency=base_currency_id)
+            exchange, currency = cls.get_exchange_and_currency(exchange=exchange_id,base_currency=base_currency_id)
 
-                res, response = cls.verify_updated_exchange(trader_account,account_name=account_name,api_key=api_key,api_secret=api_secret,kucoin_password=kucoin_password,
-                                            okex_password=okex_password,exchange=exchange, base_currency=currency)
+            res, response = cls.verify_updated_exchange(trader_account,account_name=account_name,api_key=api_key,
+                                                        api_secret=api_secret,kucoin_password=kucoin_password,
+                                        okex_password=okex_password,exchange=exchange, base_currency=currency)
 
-            return res, response
+        return res, response
 
 
     @classmethod

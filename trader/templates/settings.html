@@ -305,7 +305,7 @@
                                     <td><a href="#!" class="text-info">{{ accounts.api_key }}</a></td>
                                     <td><a href="#!">.............</a></td>
                                     <td>
-                                        <a href="{% url '' %}" class="btn btn-sm btn-info">edit</a>
+                                        <a href="{% url 'get_trader_account' accounts.id %}" class="btn btn-sm btn-info show_modal">edit</a>
                                     </td>
                                     <td>
                                         <a href="{% url 'delete_trader_Account' accounts.id %}" class="btn btn-sm btn-danger">delete</a>
@@ -384,7 +384,65 @@
             </div>
         </div>
     </section>
-
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'create_trader_Account' %}" method="POST">
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name Of Account</label>
+            <input type="text" class="form-control" placeholder="Account Name" name="account_name" id="exampleInputEmail1" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">API</label>
+            <input type="text" name="api_key" placeholder="Api Key" class="form-control" id="exampleInputPassword1" required>
+          </div>
+            <div class="form-group">
+            <label for="exampleInputPassword2">Secret</label>
+            <input type="text" name="secret" placeholder="Api Secret" class="form-control" id="exampleInputPassword2" required>
+          </div>
+                <div class="form-group" style="display:none" id="kucoin_password">
+            <label for="kucoin_pass">Kucoin Password</label>
+            <input type="password" name="kucoin_password" placeholder="Password" class="form-control" id="kucoin_pass">
+          </div>
+                <div class="form-group" style="display:none" id="okex_password">
+            <label for="okex_pass">Okex Password</label>
+            <input type="text" name="okex_password" placeholder="Password" class="form-control" id="okex_pass">
+          </div>
+            <div class="form-group">
+                <label for="exchange">Exchange</label>
+                <select class="form-control" name="exchange" id="exchange" required>
+                  <option selected disabled>Select Exchange</option>
+                    {% for exchange in exchanges %}
+                        <option value="{{ exchange.id }}">{{ exchange.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Base Currency</label>
+                <select class="form-control" name="currency" id="exampleFormControlSelect2" required>
+                  <option selected disabled>Select Currency</option>
+                    {% for currency in base_currencies %}
+                        <option value="{{ currency.id }}">{{ currency.currency }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     {% include 'footer.html' %}
 
@@ -397,6 +455,27 @@
         $(document).ready(function () {
             $("#users_table").DataTable();
         });
+
+    let exchange = document.getElementById("exchange")
+
+    exchange.addEventListener("change", function(e){
+        var kucoin_pass = document.getElementById("kucoin_password")
+        var okex_pass = document.getElementById("okex_password")
+        if(e.currentTarget.value == 7){
+
+            kucoin_pass.style.display = "block"
+        }
+        else{
+            kucoin_pass.style.display = "none"
+        }
+        if(e.currentTarget.value == 8){
+
+            okex_pass.style.display = "block"
+        }
+        else{
+            okex_pass.style.display = "none"
+        }
+    })
     </script>
 {% endblock scripts %}
 </html>

@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20b08847-3521-492a-9f34-0bf0e00973e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/trader/templates/get_trader_account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trader/models/traders/traders_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/models/traders/traders_account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/trader/templates/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/templates/trader_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/trader/templates/trader_account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trader/views/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

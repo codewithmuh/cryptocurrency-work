@@ -78,7 +78,7 @@ class TraderAccounts(models.Model):
         if trader_account is not None:
             exchange, currency = cls.get_exchange_and_currency(exchange=exchange_id,base_currency=base_currency_id)
 
-            res, response = cls.verify_updated_exchange(trader_account,account_name=account_name,api_key=api_key,
+            res, response = cls.verify_updated_exchange(trader_account=trader_account,account_name=account_name,api_key=api_key,
                                                         api_secret=api_secret,kucoin_password=kucoin_password,
                                         okex_password=okex_password,exchange=exchange, base_currency=currency)
 
@@ -91,7 +91,7 @@ class TraderAccounts(models.Model):
         if exchange.name == "FTX":
             response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
             if message:
-                cls.trader_account_update(trader_account, account_name=account_name,api_key=api_key,
+                cls.trader_account_update(trader_account=trader_account, account_name=account_name,api_key=api_key,
                                           kucoin_password=kucoin_password,okex_password=okex_password,
                                           api_secret=api_secret,exchange=exchange,base_currency=base_currency)
                 res = "saved"

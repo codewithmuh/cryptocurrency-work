@@ -289,6 +289,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Trader Name</th>
+                                <th>Exchange</th>
+                                <th>Base Currency</th>
                                 <th>Account Balance</th>
                                 <th>API</th>
                                 <th>Secret</th>
@@ -301,6 +303,8 @@
                                 <tr>
                                     <td>{{ accounts.trader.get_user_full_name }}</td>
                                     <td><a href="#!" class="text-info">{{ accounts.account_name }}</a></td>
+                                    <td><a href="#!" class="text-info">{{ accounts.exchange.name }}</a></td>
+                                    <td><a href="#!" class="text-info">{{ accounts.base_currency.currency }}</a></td>
                                     <td><a href="#!" class="text-info">{{ accounts.account_name }}</a></td>
                                     <td><a href="#!" class="text-info">{{ accounts.api_key }}</a></td>
                                     <td><a href="#!">.............</a></td>

@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20b08847-3521-492a-9f34-0bf0e00973e4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/trader/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/trader/templates/settings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/cryptocurrency-work.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trader/models/traders/account_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views/account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/models/traders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/models/traders/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/models/traders/traders_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/models/traders/traders_account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/views/marketplace.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/marketplace.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trading/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/trading/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +41,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/trader/static/vendor" />
   </component>
   <component name="RecentsManager">

@@ -3,13 +3,17 @@ from django.db import models
 from .exchange import Exchange
 from .base_currency import BaseCurrency
 import ccxt
+import shrimpy
 from .kucoin_password import KucoinPassword
 from .okex_password import OkexPassword
 
 
 class TraderAccounts(models.Model):
     trader = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user_id = models.CharField(max_length=200, null=True, blank=True)
     account_name = models.CharField(max_length=100, null=True, blank=True)
+    shrimpy_api_key = models.CharField(max_length=500, null=True, blank=True)
+    shrimpy_secret_key = models.CharField(max_length=500, null=True, blank=True)
     api_key = models.CharField(max_length=500, null=True, blank=True)
     api_secret = models.CharField(max_length=500, null=True, blank=True)
     exchange = models.ForeignKey(Exchange, on_delete=models.CASCADE)

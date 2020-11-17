@@ -118,6 +118,10 @@ def create_trader_account(request):
     base_currencies = BaseCurrency.objects.filter()
     exchanges = Exchange.objects.filter()
 
+    context = {
+        "base_currencies": base_currencies,
+        "exchanges": exchanges
+    }
     if request.method == "POST":
         context = {
             "base_currencies": base_currencies,
@@ -136,19 +140,20 @@ def create_trader_account(request):
         exchange = request.POST.get('exchange','')
         base_currency = request.POST.get('currency', '')
 
+        password = kucoin_password or okex_password if kucoin_password is not None or okex_password is not None else None
+
         user = User.objects.get(pk=request.user.id)
 
         user_profile = UserProfile.objects.get(user=user)
 
-        res, response = TraderAccounts.get_or_create_trader_account(
+        res, response = TraderAccounts.create_trader_account(
             trader=user_profile,
             api_key=api_key,
             api_secret=api_secret,
             account_name=account_name,
             exchange=exchange,
             base_currency=base_currency,
-            kucoin_password=kucoin_password,
-            okex_password=okex_password
+            password=password
         )
 
         if res == "exist":

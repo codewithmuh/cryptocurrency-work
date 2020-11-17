@@ -1,7 +1,7 @@
 from django.db import models
-from .traders_account import TraderAccounts
 
 
 class AccountInfo(models.Model):
-    trader_account = models.OneToOneField(TraderAccounts, on_delete=models.CASCADE)
-    
+    trader_account = models.OneToOneField('trader.TraderAccounts', on_delete=models.CASCADE)
+    account_id = models.IntegerField(null=True, blank=True)
+    account_balance = models.FloatField(null=True, blank=True)

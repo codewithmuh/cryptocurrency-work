@@ -4,19 +4,12 @@ from accounts.models.user_profile import UserProfile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from trader.models.traders import TraderAccounts
-from trader.models.traders import Exchange, BaseCurrency
 
 
 @login_required(login_url="login_view/")
 def user_update_description(request):
     if request.method == "POST":
-        base_currencies = BaseCurrency.objects.filter()
-        exchanges = Exchange.objects.filter()
-
-        context = {
-            "base_currencies": base_currencies,
-            "exchanges": exchanges
-        }
+        context = {}
         template_name = "settings.html"
         body = request.POST
 
@@ -37,13 +30,7 @@ def user_update_description(request):
 @login_required(login_url="login_view/")
 def user_profile_settings(request):
     if request.method == "POST":
-        base_currencies = BaseCurrency.objects.filter()
-        exchanges = Exchange.objects.filter()
-
-        context = {
-            "base_currencies": base_currencies,
-            "exchanges": exchanges
-        }
+        context = {}
         template_name = "settings.html"
         body = request.POST
 
@@ -69,14 +56,7 @@ def user_profile_settings(request):
 
 @login_required(login_url="login_view/")
 def settings_view(request):
-
-    base_currencies = BaseCurrency.objects.filter()
-    exchanges = Exchange.objects.filter()
-
-    context = {
-        "base_currencies": base_currencies,
-        "exchanges": exchanges
-    }
+    context = {}
 
     user = User.objects.filter(pk=request.user.id).first()
     user_profile = UserProfile.objects.filter(user=user).first()

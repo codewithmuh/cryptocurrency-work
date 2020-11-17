@@ -26,10 +26,65 @@ class TraderAccounts(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     @staticmethod
+
     def shrimpy_client():
         client = shrimpy.ShrimpyApiClient(settings.SHRIMPY_API_KEY, settings.SHRIMPY_API_SECRET)
-
         return client
+    def get_exchange_and_currency(exchange, base_currency):
+        exchange = Exchange.objects.filter(pk=exchange).first()
+        currency = BaseCurrency.objects.filter(pk=base_currency).first()
+
+        return exchange, currency
+
+    @classmethod
+    def check_account_name_exist(cls, account_name):
+
+        trader_account = cls.objects.filter(account_name=account_name).first()
+
+        if trader_account is not None:
+            account_exist = True
+        else:
+            account_exist = False
+
+        return account_exist
+
+    def trader_account_update(self, account_name, api_key,kucoin_password, okex_password, api_secret, exchange, base_currency):
+        self.account_name = account_name
+        self.exchange = exchange
+        self.base_currency = base_currency
+        self.api_key = api_key
+        self.api_secret = api_secret
+        self.save()
+
+        if kucoin_password:
+            kucoin_pass = KucoinPassword.objects.filter(trader_account=self).first()
+            if kucoin_pass is not None:
+                kucoin_pass.password = kucoin_password
+                kucoin_pass.save()
+        if okex_password:
+            okex_pass = OkexPassword.objects.filter(trader_account=self).first()
+            if okex_pass is not None:
+                okex_pass.password = okex_password
+                okex_pass.save()
+
+
+    @classmethod
+    def update_trader_account(cls, trader_id, account_name, api_key,kucoin_password, okex_password, api_secret, exchange_id, base_currency_id):
+        trader_account = cls.objects.filter(pk=trader_id).first()
+
+        if trader_account is not None:
+            account_exist = cls.check_account_name_exist(account_name=account_name)
+            if account_exist:
+                res = "exist"
+                response = "Account name already Taken"
+            else:
+                exchange, currency = cls.get_exchange_and_currency(exchange=exchange_id,base_currency=base_currency_id)
+
+                res, response = cls.verify_updated_exchange(trader_account,account_name=account_name,api_key=api_key,api_secret=api_secret,kucoin_password=kucoin_password,
+                                            okex_password=okex_password,exchange=exchange, base_currency=currency)
+
+            return res, response
+
 
     @classmethod
     def create_trader_account(cls, trader, account_name, api_key, api_secret, exchange, base_currency, password=None):

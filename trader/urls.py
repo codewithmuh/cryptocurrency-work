@@ -20,5 +20,5 @@ urlpatterns = [
     path('settings/user_update/', user_profile_settings , name='user_update'),
     path('settings/create_trader_account/', create_trader_account, name="create_trader_Account"),
     path('settings/update_trader_account/<int:trader_id>/', update_trader_account, name="update_trader_Account"),
-    path('settings/delete_trader_account/<int:trader_id/', delete_trader_account, name="delete_trader_Account")
+    path('settings/delete_trader_account/<int:trader_id>/', delete_trader_account, name="delete_trader_Account")
 ]

@@ -58,12 +58,6 @@ def signup_view(request):
     template_name = "signup.html"
     context = {}
 
-    ftx = ccxt.ftx()
-
-    market_places = ftx.fetch_trades('ETH/BTC')
-
-    print(market_places)
-
     return render(request, template_name=template_name, context=context)
 
 

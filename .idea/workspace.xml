@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/trader/migrations/0003_auto_20201105_1000.py" afterDir="false" />
 =======
       <change afterPath="$PROJECT_DIR$/trader/templates/trader_account.html" afterDir="false" />
@@ -43,6 +44,9 @@
       <change beforePath="$PROJECT_DIR$/trader/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/trader/views/traders_account/create_trader_account.py" afterDir="false" />
 >>>>>>> parent of 6d1bb38... commit made
+=======
+      <change beforePath="$PROJECT_DIR$/trader/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/trader/templates/settings.html" afterDir="false" />
+>>>>>>> parent of 4a4651b... changes made
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +73,6 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/trader/static/vendor" />
   </component>
   <component name="RecentsManager">

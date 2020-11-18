@@ -44,7 +44,6 @@ def delete_trader_account(request, trader_id):
     trader_account.delete()
 
     context['trader_accounts'] = trader_accounts
-    context['user_profile'] = user_profile
 
     return render(request, template_name=template_name, context=context)
 
@@ -95,8 +94,6 @@ def update_trader_account(request, trader_id):
             messages.success(request, "Account updated successfullly")
 
             context['trader_accounts'] = trader_accounts
-
-            context['user_profile'] = user_profile
 
         return render(request, template_name=template_name, context=context)
     return render(request, template_name=template_name, context=context)
@@ -153,7 +150,6 @@ def create_trader_account(request):
             print(response)
             messages.success(request, "Account created successfullly")
             context['trader_accounts'] = trader_accounts
-            context['user_profile'] = user_profile
 
         return render(request, template_name=template_name, context=context)
     return render(request, template_name=template_name, context=context)

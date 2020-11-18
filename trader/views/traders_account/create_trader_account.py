@@ -51,26 +51,16 @@ def delete_trader_account(request, trader_id):
 
 @login_required(login_url="login_view/")
 def update_trader_account(request, trader_id):
-    template_name = "get_trader_account.html"
-    trader_account = TraderAccounts.objects.get(pk=trader_id)
+    template_name = "trader_account.html"
     base_currencies = BaseCurrency.objects.filter()
     exchanges = Exchange.objects.filter()
-    context = {
-        "trader_account": trader_account,
-        "base_currencies": base_currencies,
-        "exchanges": exchanges
-    }
-
-    kucoin_pass = KucoinPassword.objects.filter(trader_account=trader_account).first()
-    okex_pass = OkexPassword.objects.filter(trader_account=trader_account).first()
-
-    if kucoin_pass is not None:
-        context['kucoin_pass'] = kucoin_pass
-    if okex_pass is not None:
-        context['okex_pass'] = okex_pass
 
     if request.method == "POST":
         template_name = "settings.html"
+        context = {
+            "base_currencies": base_currencies,
+            "exchanges": exchanges
+        }
 
         user_profile = UserProfile.objects.get(user=request.user)
 
@@ -95,8 +85,9 @@ def update_trader_account(request, trader_id):
             base_currency_id=base_currency
         )
 
+        if res == "exist":
+            messages.error(request, response)
         if res == "error":
-            template_name = "get_trader_account.html"
             messages.error(request, response)
         if res == "saved":
             context['response'] = response

@@ -211,7 +211,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "FTX":
                 response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -219,7 +219,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "BINANCE":
                 response, message = cls.verify_API_AND_SECRET_BINANCE(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -229,6 +229,7 @@ class TraderAccounts(models.Model):
                 if message:
                     account = cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange,
                                                         get_currency)
+                    account = cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     KucoinPassword.objects.create(
                         trader_account=account,
                         password=kucoin_password
@@ -240,7 +241,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "BINANCE-FUTURE":
                 response, message = cls.verify_API_AND_SECRET_BINANCE(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -248,7 +249,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "FTX-US":
                 response, message = cls.verify_API_AND_SECRET_FTX(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -256,7 +257,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "BYBIT":
                 response, message = cls.verify_API_AND_SECRET_BYBIT(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -264,7 +265,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "HITBTC":
                 response, message = cls.verify_API_AND_SECRET_HITBTC(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -272,7 +273,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "KRAKEN":
                 response, message = cls.verify_API_AND_SECRET_KRAKEN(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key,api_secret, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -282,6 +283,7 @@ class TraderAccounts(models.Model):
                 if message:
                     account = cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange,
                                                         get_currency)
+                    account = cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     OkexPassword.objects.create(
                         trader_account=account,
                         password=okex_password
@@ -293,7 +295,7 @@ class TraderAccounts(models.Model):
             if get_exchange.name == "DERIBIT":
                 response, message = cls.verify_API_AND_SECRET_DERIBIT(api_key, api_secret)
                 if message:
-                    cls.create_trader_account(trader, account_name, api_key, api_secret, get_exchange, get_currency)
+                    cls.create_trader_account(trader, account_name, api_key, get_exchange, get_currency)
                     res = "saved"
                 else:
                     res = "error"
@@ -347,10 +349,10 @@ class TraderAccounts(models.Model):
             exchange_id = 'binance'
             exchange_class = getattr(ccxt, exchange_id)
             exchange = exchange_class({
-                'apiKey': api_key,
-                'secret': api_secret,
+                'apiKey': 'YOUR_API_KEY',
+                'secret': 'YOUR_SECRET',
                 'timeout': 30000,
-                'enableRateLimit': True
+                'enableRateLimit': True,
             })
 
             fetch_balance = exchange.fetch_balance()

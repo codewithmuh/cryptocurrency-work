@@ -10,7 +10,6 @@
     <link rel="icon" href="{% static '' %}">
     <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome-free.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -282,7 +281,7 @@
                 </div>
                 <p>Profile</p>
                 <p class="text-primary">create and manage API profile of exchange</p>
-<a href="{% url 'trader_account_view' %}" class="btn btn-info                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ">Add New</a>
+<a href="{% url 'trader_account_view' %}" class="btn btn-info">Add New</a>
                 <div class="table-responsive m-2">
                     <table class="table table-hover table-bordered" id="users_table">
                         <thead>
@@ -320,6 +319,8 @@
                     </table>
                 </div>
                 <a href="{% url 'trader_account_view' %}" class="btn btn-success">Add New</a>
+
+                <a href="{% url 'trader_account_view' %}" class="btn btn-info">Add New</a>
             </div>
             <div id="SecurityTab" class="tab-pane">
                 
@@ -395,13 +396,7 @@
 
 
 </body>
-{% block scripts %}
-    <script type="text/javascript" src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#users_table").DataTable();
-        });
-    </script>
-{% endblock scripts %}
+<script>
+
+</script>
 </html>

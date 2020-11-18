@@ -10,7 +10,6 @@
     <link rel="icon" href="{% static '' %}">
     <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome-free.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -166,52 +165,61 @@
                         <input class="input btn btn-info" type="submit" value="Filter">
                     </div>
                 </form>
-                <div class="table-responsive m-2">
-                    <table class="table table-hover table-bordered" id="users_table">
+                <div class="table-part">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Trader Name</th>
-                                <th>Details</th>
-                                <th>Leverage</th>
-                                <th><a href="#!" class="text-info">Volume</a></th>
-                                <th><a href="#!" class="text-info">P/L ($)</a></th>
-                                <th><a href="#!" class="text-info">Profit / Volume (%)</a></th>
-                                <th><a href="#!" class="text-info">Profit Factor</a></th>
-                                <th><a href="#!" class="text-info">Percent Profitable</a></th>
-                                <th><a href="#!" class="text-info">AVG P/L (%)</a></th>
-                                <th><a href="#!" class="text-info">P/L (%)</a></th>
-                                <th><a href="#!" class="text-info">Weighted P/L</a></th>
-                                <th><a href="#!" class="text-info">Followers</a></th>
-                                <th><a href="#!" class="text-info">Trades</a></th>
-                                <th>Timestamp</th>
-                                <th>Actions</th>
+                                <td>#</td>
+                                <td>Name of Account</td>
+                                <td>Trader Name</td>
+                                <td>Exchange</td>
+                                <td>Base Currency</td>
+                                <td><a href="#!" class="text-info">Volume</a></td>
+                                <td><a href="#!" class="text-info">P/L ($)</a></td>
+                                <td><a href="#!" class="text-info">Profit / Volume (%)</a></td>
+                                <td><a href="#!" class="text-info">Profit Factor</a></td>
+                                <td><a href="#!" class="text-info">Percent Profitable</a></td>
+                                <td><a href="#!" class="text-info">AVG P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">Weighted P/L</a></td>
+                                <td><a href="#!" class="text-info">Active Bots</a></td>
+                                <td><a href="#!" class="text-info">Followers</a></td>
+                                <td><a href="#!" class="text-info">Trades</a></td>
+                                <td>Timestamp</td>
+                                <td>Actions</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tr>
                             <td>1</td>
-                            <td>FiBot</td>
-                            <td><a href="#!" class="text-info">YUSUF</a></td>
-                            <td>BINANCE-FUTURES | BTC/USDT | 5M</td>
-                            <td>20x</td>
-                            <td>149467 $</td>
-                            <td>-964.92 $</td>
-                            <td>-0.65%</td>
-                            <td>0.14</td>
-                            <td>50%</td>
-                            <td class="text-danger">-1.23%</td>
-                            <td class="text-danger">-24.54%</td>
-                            <td class="text-danger">-27.16%</td>
-                            <td>0</td>
-                            <td>4</td>
-                            <td>2020-10-12 16:49</td>
+                            <td>DEFI Shorts</td>
+                            <td><a href="#!" class="text-info">Niels</a></td>
+                            <td>FTX</td>
+                            <td>USDT</td>
+                            <td>97423 $</td>
+                            <td>267.43 $</td>
+                            <td>0.27%</td>
+                            <td>3.34</td>
+                            <td>40.94%</td>
+                            <td class="text-success">0.64%</td>
+                            <td class="text-success">65.41%</td>
+                            <td class="text-success">35.01%</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>508</td>
+                            <td>2 seconds ago</td>
                             <td><a href="#!" class="btn btn-info">show</a></td>
                         </tr>
-                        </tbody>
                     </table>
                 </div>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item disabled"><a class="page-link disabled" href="#!">Previous</a></li>
+                      <li class="page-item active"><a class="page-link" href="#!">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">Next</a></li>
+                    </ul>
+                  </nav>
             </div>
             <div id="botsTab" class="tab-pane">
                 <form class="row" method="post" action="">
@@ -260,30 +268,30 @@
                     </div>
                 </form>
                 <div class="table-part">
-                    <table class="table table-hover" id="users_table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Trader Name</th>
-                                <th>Details</th>
-                                <th>Leverage</th>
-                                <th><a href="#!" class="text-info">Volume</a></th>
-                                <th><a href="#!" class="text-info">P/L ($)</a></th>
-                                <th><a href="#!" class="text-info">Profit / Volume (%)</a></th>
-                                <th><a href="#!" class="text-info">Profit Factor</a></th>
-                                <th><a href="#!" class="text-info">Percent Profitable</a></th>
-                                <th><a href="#!" class="text-info">AVG P/L (%)</a></th>
-                                <th><a href="#!" class="text-info">P/L (%)</a></th>
-                                <th><a href="#!" class="text-info">Weighted P/L</a></th>
-                                <th><a href="#!" class="text-info">Followers</a></th>
-                                <th><a href="#!" class="text-info">Trades</a></th>
-                                <th>Timestamp</th>
-                                <th>Actions</th>
+                                <td>#</td>
+                                <td>Name</td>
+                                <td>Trader Name</td>
+                                <td>Details</td>
+                                <td>Leverage</td>
+                                <td><a href="#!" class="text-info">Volume</a></td>
+                                <td><a href="#!" class="text-info">P/L ($)</a></td>
+                                <td><a href="#!" class="text-info">Profit / Volume (%)</a></td>
+                                <td><a href="#!" class="text-info">Profit Factor</a></td>
+                                <td><a href="#!" class="text-info">Percent Profitable</a></td>
+                                <td><a href="#!" class="text-info">AVG P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">P/L (%)</a></td>
+                                <td><a href="#!" class="text-info">Weighted P/L</a></td>
+                                <td><a href="#!" class="text-info">Followers</a></td>
+                                <td><a href="#!" class="text-info">Trades</a></td>
+                                <td>Timestamp</td>
+                                <td>Actions</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tr>
+
                             <td>1</td>
                             <td>FiBot</td>
                             <td><a href="#!" class="text-info">YUSUF</a></td>
@@ -299,12 +307,20 @@
                             <td class="text-danger">-27.16%</td>
                             <td>0</td>
                             <td>4</td>
-                            <td>2020-10-12 16:9</td>
+                            <td>2020-10-12 16:49</td>
                             <td><a href="#!" class="btn btn-info">show</a></td>
                         </tr>
-                        </tbody>
                     </table>
                 </div>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item disabled"><a class="page-link disabled" href="#!">Previous</a></li>
+                      <li class="page-item active"><a class="page-link" href="#!">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#!">Next</a></li>
+                    </ul>
+                  </nav>
             </div>
         </div>
     </section>
@@ -313,13 +329,7 @@
 
     {% include 'footer.html' %}
 </body>
-{% block scripts %}
-    <script type="text/javascript" src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#users_table").DataTable();
-        });
-    </script>
-{% endblock scripts %}
+<script>
+
+</script>
 </html>
